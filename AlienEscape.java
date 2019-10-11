@@ -7,6 +7,7 @@ public class AlienEscape {
 
     private static Scanner sc = new Scanner(System.in);
     private static ArrayList<String> equipement = new ArrayList<>();
+    private static MyAlien alien = new MyAlien(name);
 
     public static void main (String[] args) {
         //Title début
@@ -17,7 +18,7 @@ public class AlienEscape {
     }
 
     public static void LaunchGame() {   
-
+        
 
     }
 
