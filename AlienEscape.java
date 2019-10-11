@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class AlienEscape {
 
+    private static Scanner sc = new Scanner(System.in);
+
     public static void main (String[] args) {
         //Title début
 
@@ -12,6 +14,8 @@ public class AlienEscape {
 
     public static void LaunchGame() {   
 
+        stay();
+        firstMeet();
 
     }
 
