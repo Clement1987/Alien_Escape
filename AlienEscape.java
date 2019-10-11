@@ -8,10 +8,19 @@ public class AlienEscape {
         //Title fin
     }
 
-    public static void LaunchGame() {
+    public static void LaunchGame() {   
 
-        //TODO
 
     }
+
+    //SANDRA
+
+
+
+    //CLEMENT
+
+
+
+    //QUENTIN
 
 }
