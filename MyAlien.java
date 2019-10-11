@@ -2,14 +2,14 @@ public class MyAlien {
 
     private String name;
     private int life;
-    private int strenght;
+    private int strength;
     private int charm;
     private int vitality;
 
     public MyAlien (String name) {
         this.name = name;
         this.life = 100;
-        this.strenght = 5;
+        this.strength = 5;
         this.charm = 0;
         this.vitality = 10;
     }
@@ -38,8 +38,8 @@ public class MyAlien {
         this.life = life;
     }
 
-    public void setStrenght (int strenght) {
-        this.strenght = strenght;
+    public void setStrenght (int strength) {
+        this.strength = strength;
     }
 
     public void setCharm (int charm) {
