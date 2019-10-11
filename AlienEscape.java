@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class AlienEscape {
 
     public static void main (String[] args) {
@@ -22,5 +24,12 @@ public class AlienEscape {
 
 
     //QUENTIN
+    
+
+    //GLOBAL
+
+    public static void say (String message) {
+        System.out.println(message);
+    }
 
 }
