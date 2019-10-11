@@ -49,6 +49,36 @@ public class AlienEscape {
             }
     }
 
+    public static String licorneRoom(){
+        say("A pas feutré vous entrouvez la porte de la salle que vous avez séléctionné. A votre grande surprise, celle ci est plongée dans le noir, à votre droite se trouve un interrupteur pour éclairer la salle.");
+        say("Souhaitez vous allumer la lumière ?!");
+        say("1. Oui");
+        say("2. Non");
+        int licorneChoice = sc.nextInt();
+        if (licorneChoice == 1){
+            say("votre instinct à bien fait d'allumer la lumière car devant vous se trouve une licorne rose avec des taches de peintures couleurs arc en ciel sur la tête entre sa corne et ses yeux.");
+            say("Celle-ci vous dévisage équipé d'une corde sur le coté droit, celle-ci se rapproche de vous et met son museau entre vos mains et rappetissie jusqu'à tenir dans votre main.");
+            say("Félicitation vous obtenez une licorne équipé d'une corde !");
+            return "Licorne";
+        }
+        if(licorneChoice == 2) {
+            say("votre instinct à bien fait et vous avez évitez un grand danger et continuer votre périple sans perdre des points de vie");
+            return null;
+        }
+        
+    }
+
+    public static String PaulRoom(){
+        say("Vous arrivez devant la porte verte et l'ouvrez avec un grand fracas, se tiens devant vous Paul star du cinéma, celui ci vous regarde surpris et vous lance");
+        say("pour les autographes de mes fans interspatiales il faudra négocier avec mon doubleur philippe Manoeuvre ! j'en ai marre de cet tête, je vais me faire un ravalement de facade instantanée !");
+        say("oh ! non je me suis trompez de modèle, le névrosé du code je n'en peux plus ! jour et nuit il code ! et surtout il patine, patine j'en ai ras le glaçon  !!");
+        say("tiens prend ma photo, au moins tu pourras dire que tu as vu la star de ses lieux !");
+        say("félicitation vous obtenez une photo de Paul le codeur");
+        return "Photo";
+    }
+
+    
+
 
 
     //QUENTIN
