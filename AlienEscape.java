@@ -8,6 +8,7 @@ public class AlienEscape {
     private static Scanner sc = new Scanner(System.in);
     private static ArrayList<String> equipement = new ArrayList<>();
     private static MyAlien alien = new MyAlien("name");
+    private static String playerAnswer;
 
     public static void main (String[] args) {
         //Title début
@@ -17,8 +18,9 @@ public class AlienEscape {
         //Title fin
     }
 
-    public static void LaunchGame() {   
+    public static void LaunchGame() {
 
+        stay();
 
     }
 
@@ -32,6 +34,12 @@ public class AlienEscape {
 
     //QUENTIN
 
+    public static void stay () {
+        String question = "Souhaitez-vous sortir de votre cellule et explorer la Zone 51 ?";
+        String[] answerList = new String[] {"Oui","Non"};
+        playerAnswer = choice (question, answerList);
+    }
+
     //GLOBAL
 
     public static void say (String message) {
@@ -44,8 +52,8 @@ public class AlienEscape {
             answerIndex[j] = Integer.toString(j+1);
         }
         String[] answerList = choices;
-		String playerAnswer = "";
-		while (!Arrays.asList(answerIndex).contains(playerAnswer)) {
+		String pAnswer = "";
+		while (!Arrays.asList(answerIndex).contains(pAnswer)) {
             say(question);
             say("");
             for (int i = 0; i < answerList.length; i++) {
@@ -53,10 +61,10 @@ public class AlienEscape {
             }
             say("");
             System.out.print("Answer : ");
-            playerAnswer = sc.nextLine();
+            pAnswer = sc.nextLine();
             say("");
         }
-        return playerAnswer;
+        return pAnswer;
     }
 
 }
