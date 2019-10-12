@@ -9,10 +9,12 @@ public class AlienEscape {
     private static ArrayList<String> equipement = new ArrayList<>();
     private static MyAlien alien = new MyAlien("name");
     private static String playerAnswer;
+    private static boolean playing;
 
     public static void main (String[] args) {
         //Title début
 
+        playing = true;
         LaunchGame();
 
         //Title fin
@@ -20,7 +22,7 @@ public class AlienEscape {
 
     public static void LaunchGame() {
 
-        stay();
+        if (playing) stay(); 
 
     }
 
