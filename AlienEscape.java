@@ -30,7 +30,10 @@ public class AlienEscape {
         if (playing) chooseDoor();
 
         //SANDRA
-        priest();
+        if (playing) kitchen();
+        if (playing) priest();
+        if (playing) slippers();
+        if (playing) weapons();
 
 
         //CLEMENT
@@ -42,16 +45,16 @@ public class AlienEscape {
 
     //SANDRA
     public static void kitchen() {
-        say("Vous poussez la porte, immmédiatement une forte odeur de curry vous pique les recepteurs olfactifs. La faible lueur d'un feu étrange éclaire la pièce. " 
+        say("\nVous poussez la porte, immmédiatement une forte odeur de curry vous pique les recepteurs olfactifs. La faible lueur d'un feu étrange éclaire la pièce. " 
             + "Dans le récipient au dessus du feu, vous distinguez des denrées humaines sous forme liquide.");
         
-        String question = "\nVous nourir un peu serait une bonne idée, mais vous ne savez pas si votre métabolisme sera s'adapter...";
+        String question = "Vous nourir un peu serait une bonne idée, mais vous ne savez pas si votre métabolisme sera s'adapter...";
         String[] choices = {"Se nourir", "Sortir sans rien toucher"};
 
         playerAnswer = choice(question, choices);
 
         if(playerAnswer.equals("1")) {
-            say("Affamé, vous vous saisisez à pleine mains du récipient de denrées. Une douleur fulgurente vous traverse la peau, vous lachez prise et le liquide se renverse sur vous."
+            say("\nAffamé, vous vous saisisez à pleine mains du récipient sur le feu. Une douleur fulgurente vous traverse la peau, vous lachez prise et le liquide se renverse sur vous."
                 + "\nTout en hurlant à des fréquences inaudibles, vous attrapez un bout de tissu pour vous essuyer, mais vous glissez dans le liquide et manquez de vous assomer."
                 + "\nQuand vous reprenez vos esprits, le tissu s'est enflammé et le feu commence à se propager."
                 + "\nAprès 30 min d'intenses efforts, vous avez réussi à éteindre le feu. Vous ressortez de la pièce, fourbu...");
@@ -63,15 +66,15 @@ public class AlienEscape {
     }
 
     public static void priest() {
-        say("Vous poussez la porte, un homme en toge blanche est agenouillé devant un hotel de pierre. Il se retourne lentement, il n'a pas l'air suppris de vous voir.");
+        say("\nVous poussez la porte, un homme en toge blanche est agenouillé devant un hotel de pierre. Il se retourne lentement, il n'a pas l'air suppris de vous voir.");
 
-        String question = "\nMon enfant, approchez-vous dans la lumière, que je vous donne ma bénédiction\", dit-il calmement.";
+        String question = "Mon enfant, approchez-vous dans la lumière, que je vous donne ma bénédiction\", dit-il calmement.";
         String[] choices = {"Recevoir la bénédiction du prêtre", "Rebrousser chemin"};
 
         playerAnswer = choice(question, choices);
 
         if (playerAnswer.equals("1")) {
-            say("Vous vous approchez maladroitement du prêtre, il dessine d'étranges signes dans l'air et prononce des paroles incompréhensibles." 
+            say("\nVous vous approchez maladroitement du prêtre, il dessine d'étranges signes dans l'air et prononce des paroles incompréhensibles." 
                 + "\nVous sentez une sensation de chaleur se répendre depuis vos membres porteurs, votre corps semble soudain léger et alerte." 
                 + "\nVous ressortez, vous ne pouvez vous empêcher de repenser à ses grandes pupilles dilatées...");
             alien.setVitality(alien.getVitality() + 50);
@@ -82,12 +85,30 @@ public class AlienEscape {
     }
 
     public static void slippers() {
-        say("Vous poussez la porte, la pièce se trouve dans la pénombre... Vous faites quelques pas sur la moquette pour atteindre l'interupteur." 
+        say("\nVous poussez la porte, la pièce se trouve dans la pénombre... Vous faites quelques pas sur la moquette pour atteindre l'interupteur." 
             + "\nSoudain, un objet vous percute violemment au visage ! Hébété, vous apercevez une humaine vous visant avec une pantoufle : " 
             + "\n\"Fuyez pauvre fou, vous avez ruiné la moquette de la Wild !\", crie-t-elle." 
             + "\nVous courrez vers la sortie pendant qu'une autre patoufle vous atteind à la tête.");
         alien.setLife(alien.getLife() - 5);
         say("\nVous perdez 5 points de vie.");
+    }
+
+    public static String weapons() {
+        String question = "\nVous avez trouvé la salle des armes ! Vous n'avez plus qu'à vous servir...";
+        String[] choices = {"Bazouka", "Petit pistolet", "Oublieur"};
+
+        playerAnswer = choice(question, choices);
+
+        if (playerAnswer.equals("1")) {
+            say("\nVous prenez le bazouka, plus c'est gros plus ça fait du dégat.");
+            return choices[0];
+        } else if (playerAnswer.equals("2")) {
+            say("\nVous prenez le pistolet, bon choix dans les espaces clos...");
+            return choices[1];
+        } else {
+            say("\nVous prenez l'oublieur, c'est joli, ça cligotte.");
+            return choices[2];
+        }
     }
 
 
