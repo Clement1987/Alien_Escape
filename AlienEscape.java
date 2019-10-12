@@ -537,14 +537,14 @@ public class AlienEscape {
     //GLOBAL
 
     private static void say (String message) {
-        /*Sound letter = new Sound("./Sounds/2777.wav");
-        letter.play();*/
+        Sound letter = new Sound("./Sounds/2777.wav");
+        letter.play();
         for (int i = 0; i < message.length(); i++) {
             System.out.print(message.charAt(i));
             wait(20);
         }
         System.out.println("");
-        /*letter.stop();*/
+        letter.stop();
     }
 
     private static String choice (String question, String[] choices) {
