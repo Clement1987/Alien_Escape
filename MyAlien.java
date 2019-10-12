@@ -16,6 +16,10 @@ public class MyAlien {
 
     //getters
 
+    public String getName() {
+        return this.name;
+    }
+
     public int getLife () {
         return this.life;
     }
@@ -33,6 +37,10 @@ public class MyAlien {
     }
 
     //setters
+
+    public void setName (String name) {
+        this.name = name;
+    }
 
     public void setLife (int life) {
         this.life = life;
