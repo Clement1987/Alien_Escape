@@ -190,14 +190,6 @@ public class AlienEscape {
             }
         }
         for (int i = 1; i < choices.length; i++) {
-            if (inventory[i-1].equals("alien diforme")) {
-                choicesText[i] = "L'alien diforme crie d'effroi et le soldat vous tue tous les deux.";
-                choices[i] = "Faire appel à l'alien diforme !";
-                isDying[i] = true;
-                isHurting[i] = false;
-            }
-        }
-        for (int i = 1; i < choices.length; i++) {
             if (inventory[i-1].equals("Licorne")) {
                 choicesText[i] = "Non ! Pas la licorne ! Vous mourrez en tentant de la protéger...";
                 choices[i] = "Pousser la licorne devant soi";
