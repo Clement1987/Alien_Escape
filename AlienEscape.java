@@ -46,12 +46,12 @@ public class AlienEscape {
         say("\nVous poussez la porte, immmédiatement une forte odeur de curry vous pique les recepteurs olfactifs. La faible lueur d'un feu étrange éclaire la pièce. " 
             + "Dans le récipient au dessus du feu, vous distinguez des denrées humaines sous forme liquide.");
         
-        String question = "Vous nourir un peu serait une bonne idée, mais vous ne savez pas si votre métabolisme sera s'adapter...";
+        String question = "Vous nourir un peu serait une bonne idée, mais vous ne savez pas si votre métabolisme saura s'adapter...";
         String[] choices = {"Se nourir", "Sortir sans rien toucher"};
         playerAnswer = choice(question, choices);
 
         if(playerAnswer.equals("1")) {
-            say("\nAffamé, vous vous saisisez à pleine mains du récipient sur le feu. Une douleur fulgurente vous traverse la peau, vous lachez prise et le liquide se renverse sur vous."
+            say("\nAffamé, vous saisisez à pleines mains le récipient sur le feu. Une douleur fulgurente vous traverse la peau, vous lachez prise et le liquide se renverse sur vous."
                 + "\nTout en hurlant à des fréquences inaudibles, vous attrapez un bout de tissu pour vous essuyer, mais vous glissez dans le liquide et manquez de vous assomer."
                 + "\nQuand vous reprenez vos esprits, le tissu s'est enflammé et le feu commence à se propager."
                 + "\nAprès 30 min d'intenses efforts, vous avez réussi à éteindre le feu. Vous ressortez de la pièce, fourbu...");
@@ -71,7 +71,7 @@ public class AlienEscape {
 
         if (playerAnswer.equals("1")) {
             say("\nVous vous approchez maladroitement du prêtre, il dessine d'étranges signes dans l'air et prononce des paroles incompréhensibles." 
-                + "\nVous sentez une sensation de chaleur se répendre depuis vos membres porteurs, votre corps semble soudain léger et alerte." 
+                + "\nVous sentez une sensation de chaleur se répendre dans votre corps, vous vous sentez soudain léger et alerte." 
                 + "\nVous ressortez, vous ne pouvez vous empêcher de repenser à ses grandes pupilles dilatées...");
             alien.setVitality(alien.getVitality() + 50);
             say("\nVous gagnez " + Colors.red("50 points de vitalité") + " et un doigt dans le cul.");
@@ -146,7 +146,7 @@ public class AlienEscape {
         }
         for (int i = 1; i < choices.length; i++) {
             if (inventory[i-1].equals("Petit pistolet")) {
-                choicesText[i] = "Vous tirer et le touchez à la poitrine. Il réplique, la balle vous rafle la peau."
+                choicesText[i] = "Vous tirez et le touchez à la poitrine. Il réplique, la balle vous rafle la peau."
                 +"\nLe soldat s'éfondre, vous êtes sauf !";
                 choices[i] = "Saisir le pistolet";
                 isDying[i] = false;
@@ -155,7 +155,7 @@ public class AlienEscape {
         }
         for (int i = 1; i < choices.length; i++) {
             if (inventory[i-1].equals("Fusil à molécules")) {
-                choicesText[i] = "Vous dégainez voter fusil à molécues et tirez ! Le soldat est désintégré instantanément." 
+                choicesText[i] = "Vous dégainez voter fusil à molécules et tirez ! Le soldat est désintégré instantanément." 
                 + "\nC'est bien fait et ça fait plaisir.";
                 choices[i] = "Saisir le fusil à molécules";
                 isDying[i] = false;
@@ -173,7 +173,7 @@ public class AlienEscape {
         }
         for (int i = 1; i < choices.length; i++) {
             if (inventory[i-1].equals("alien costaud")) {
-                choicesText[i] = "L'alien costaud saute devant vous et intersepte la balle qui allait vous tuer."
+                choicesText[i] = "L'alien costaud saute devant vous et intercepte la balle qui allait vous tuer."
                 +"\nIl s'effondre, mais il vous donne le temps nécéssaire pour attaquer sauvagement le soldat. Le soldat tombe." 
                 + "\nVous n'oublierai jamais le sacrifice de votre ami...";
                 choices[i] = "Faire appel à l'alien costaud !";
