@@ -22,7 +22,7 @@ public class AlienEscape {
 
     public static void LaunchGame() {
 
-        if (playing) stay(); 
+        if (playing) stay();
 
     }
 
@@ -31,8 +31,6 @@ public class AlienEscape {
         say("Vous poussez la porte, immmédiatement une forte odeur de curry vous pique les recepteurs olfactifs. La faible lueur d'un feu étrange éclaire la pièce. " 
             + "Dans le récipient au dessus du feu, vous distinguez des denrées humaines sous forme liquide.");
         say("\nVous nourir un peu serait une bonne idée, mais vous ne savez pas si votre métabolisme sera s'adapter...\n< 1 > Se nourir\n< 2 > Sortir sans rien toucher");
-
-        playerAnswer = choice();
 
         if(playerAnswer.equals("1")) {
             say("Affamé, vous vous saisisez à pleine mains du récipient de denrées. Une douleur fulgurente vous traverse la peau, vous lachez prise et le liquide se renverse sur vous."
@@ -58,6 +56,12 @@ public class AlienEscape {
         String question = "Souhaitez-vous sortir de votre cellule et explorer la Zone 51 ?";
         String[] answerList = new String[] {"Oui","Non"};
         playerAnswer = choice (question, answerList);
+        if (playerAnswer.equals("1")) {
+            say("C'était un bon choix, vous vous extirpez de votre cellule.");
+        } else {
+            say("Vous restez dans votre cellule et ratez ce qui était sûrement votre unique chance de sortir de cet endroit.");
+            playing = false;
+        }
     }
 
     //GLOBAL
