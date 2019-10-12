@@ -37,29 +37,44 @@ public class AlienEscape {
 
     public static void LaunchGame() {
 
-        if (playing) textStart();
-        wait(3000);
-        if (playing) stay();
-        wait(1000);
-        if (playing) firstMeet();
-        wait(1000);
-        if (playing) corridors();
-        wait(1000);
-        if (playing) rescueAliens();
-        wait(1000);
-        if (playing) chooseDoor();
-        wait(1000);
-        if (playing) guardZone3();
-        wait(1000);
+        if (playing) {
+            textStart();
+            wait(3000);
+        }       
+        if (playing) {
+            stay();
+            wait(1000);
+        } 
+        if (playing) { 
+            firstMeet();
+            wait(1000);
+        }
+        if (playing) {
+            corridors();
+            wait(1000);
+        }
+        if (playing) {
+            rescueAliens();
+            wait(1000);
+        }
+        if (playing) {
+            chooseDoor();
+            wait(1000);
+        }
+        if (playing) { 
+            guardZone3();
+            wait(1000);
+        }
         if (playing) outdoor();
-        end();
+        if (playing) win();
+            else end();
     }
 
     //SANDRA
         //Salle 2
     public static void kitchen() {
         say("\nVous poussez la porte, immmédiatement une forte odeur de curry vous pique les recepteurs olfactifs. La faible lueur d'un feu étrange éclaire la pièce. " 
-            + "Dans le récipient au dessus du feu, vous distinguez des denrées humaines sous forme liquide.");
+            + "\nDans le récipient au dessus du feu, vous distinguez des denrées humaines sous forme liquide.");
         
         String question = "Vous nourir un peu serait une bonne idée, mais vous ne savez pas si votre métabolisme saura s'adapter...";
         String[] choices = {"Se nourir", "Sortir sans rien toucher"};
@@ -315,8 +330,8 @@ public class AlienEscape {
 
     public static void pierreRoom(){
         say("\nVous poussez la porte rouge et découvrez Pierre, les lunettes de travers, avec un caleçon aux motifs de chaussettes. Celui-ci vous regarde et déclare : ");
-        String question = "\nOh ! un invité surprise tu veux faire des chaussettes avec moi made in Wild ?!";
-        String[] playerChoice = {"Rester","partir en courant et en criant \"C'est des malades !!!\"","Rester et complimenter son caleçon !"};
+        String question = "Oh ! un invité surprise tu veux faire des chaussettes avec moi made in Wild ?!";
+        String[] playerChoice = {"Rester","Partir en courant et en criant \"C'est des malades !!!\"","Rester et complimenter son caleçon !"};
         playerAnswer = choice(question,playerChoice);
             if (playerAnswer.equals("1")){
                 say("Pierre est très content et fabrique avec vous votre première chaussette Wild, Félicitations !");
@@ -568,6 +583,14 @@ public class AlienEscape {
         System.out.println("===============================================================================================================");
         say("");
         say("Vous avez malheureusement échoué. Vous n'avez pas pu vous échapper de la Zone 51.");
+        say("");
+    }
+
+     private static void win() {
+        say("");
+        System.out.println("===============================================================================================================");
+        say("");
+        say("Félicitations ! Le chaos général et les déguisements douteux des envahisseurs vous permmenttent de vous échapper de la Zone 51.");
         say("");
     }
 
