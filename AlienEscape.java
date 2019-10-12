@@ -25,6 +25,9 @@ public class AlienEscape {
         //QUENTIN
         if (playing) stay();
         if (playing) firstMeet();
+        if (playing) corridors();
+        if (playing) rescueAliens();
+        if (playing) chooseDoor();
 
         //SANDRA
         priest();
@@ -72,7 +75,7 @@ public class AlienEscape {
                 + "\nVous sentez une sensation de chaleur se répendre depuis vos membres porteurs, votre corps semble soudain léger et alerte." 
                 + "\nVous ressortez, vous ne pouvez vous empêcher de repenser à ses grandes pupilles dilatées...");
             alien.setVitality(alien.getVitality() + 50);
-            say("\nVous gagnez 50 points de vitalité.");
+            say("\nVous gagnez 50 points de vitalité et un doigt dans le cul.");
         } else {
             say("\nVotre instinct vous pousse à rebrousser chemin... A la réflexion, l'homme avait d'énormes pupilles dilatées...");
         }
@@ -179,8 +182,8 @@ public class AlienEscape {
     }
 
     private static void firstMeet () {
-        say("A peine sorti de votre misérable prison, vous vous retrouvez nez à nez avec l'un des gardes faisant sa ronde matinale");
-        say("A votre vue, il dégaine immédiatement son fusil à molécules sûrement retrouvé parmi les décombres de votre navette spatiale");
+        say("A peine sorti de votre misérable prison, vous vous retrouvez nez à nez avec l'un des gardes faisant sa ronde matinale.");
+        say("A votre vue, il dégaine immédiatement son fusil à molécules sûrement retrouvé parmi les décombres de votre navette spatiale.");
         String question = "Devant cette situation vous n'avez que 2 solutions qui s'offrent à vous :";
         String[] answerList = new String[] {"Se battre","Le séduire"};
         playerAnswer = choice (question, answerList);
@@ -195,7 +198,7 @@ public class AlienEscape {
     }
 
     private static void loverTime () {
-        String question =("Vous avez décidé de séduire le garde, choissisez la phrase d'approche la plus appropriée :");
+        String question = "Vous avez décidé de séduire le garde, choissisez la phrase d'approche la plus appropriée :";
         String[] answerList = new String[] {"Salut, j’étais là-bas, je t’ai vu et je t’ai trouvé tout sexy.","Belle journée pour faire une garde n'est ce pas ?","Salut, vous êtes d'ici ?"};
         String answer = choice(question, answerList);
         if (answer.equals("1")) {
@@ -210,6 +213,47 @@ public class AlienEscape {
             say("Sérieusement ??? Y'a pas plus niais comme technique d'approche, tu as bien mérité de te faire latter le cul à coup de matraque.");
             playing = false;
         }
+    }
+
+    private static void corridors () {
+        say("Après cette leçon de seduction de Maître, vous continuez votre chemin dans un long couloir vide.");
+        String question = "vous arrivez alors à une intersection, où voulez-vous aller ?";
+        String[] answerList = new String[] {"Aller à gauche", "Aller à droite"};
+        String playerAnswer = choice(question, answerList);
+        if (playerAnswer.equals("1")) {
+            say("Vous suivez le couloir de gauche, qui tourne à droite, et encore à droite, et qui menait en réalité au même endroit que le couloir de droite...");
+        } else {
+            say("Vous suivez le couloir de droite, qui tourne à gauche, et encore à gauche, et qui menait en réalité au même endroit que le couloir de gauche...");
+        }
+
+    }
+
+    private static String rescueAliens () {
+        say("Vous arrivez désormais dans une grande salle dans laquelle sont disposées quatres cages où d'autres aliens sont enfermés.");
+        String question = "Au loin, vous entendez la sécurité arriver, vous n'avez le temps de secourir qu'un seul alien :";
+        String[] answerList = new String[] {"Secourir un alien petit et trappu","Secourir un alien grand et costaud","Secourir un alien diforme et visqueux",};
+        playerAnswer = choice(question, answerList);
+        if (playerAnswer.equals("1")) {
+            say("Vous secourez l'alien petit et trappu, malheureusement tout ce qui est petit n'est pas forcèment mignon.");
+            say("Il attends que vous soyez retourné pour vous assomer et s'enfuir. Vous vous réveillez dans votre cellule et passez le restant de vos jours dans une salle isolé de tout.");
+            playing = false;
+        } else if (playerAnswer.equals("2")) {
+            say("Vous secourez l'alien grand et costaud.");
+            say("il vous suit sans hésitez et vous comprenez vite que sa carrure est bien plus imposante que sa force réelle.");
+            return "alien costaud";
+        } else if (playerAnswer.equals("3")) {
+            say("Vous secourez l'alien diforme et visqueux.");
+            say("Vous vous enfuyez avec un nouveau compagnon.");
+            return "alien diforme";
+        }
+        return "";
+    }
+
+    private static void chooseDoor () {
+        say("Vous arrivez dans un couloir disposant de dix portes, 5 de part et d'autre.");
+        String question = "Quelle porte voulez-vous emprunter ?";
+        String[] answerList = new String[] {"Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte"};
+        playerAnswer = choice(question, answerList);
     }
 
     //GLOBAL
