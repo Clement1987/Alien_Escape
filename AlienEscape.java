@@ -23,6 +23,8 @@ public class AlienEscape {
 
     public static void LaunchGame() {
 
+        if (playing) textStart();
+        wait(5000);
         if (playing) stay();
         wait(1000);
         if (playing) firstMeet();
@@ -168,6 +170,13 @@ public class AlienEscape {
             equipement.add("Sticker Java");
         }
 
+    }
+    public static void textStart(){
+        say("Vous ouvrez les yeux et entendez la radio du garde à l'exterieur de votre cellule qui grésille de plus en plus.");
+        say(" Vous vous souvenez de votre rencontre entre les états unis et votre peuple à rosenzweig. Les Américains n'ont pas tenus leur engagment et vous ont enfermé dans leur prison situé dans la zone 51.");
+        say("La porte de votre cellule semble avoir été coupé par une coupure brève de courant, vous jeter un oeil au calendrier près de la porte affichant la date du jour: 20 septembre 2019.");
+        say("C'est ici que commence votre aventure !");
+        say("");
     }
 
     
