@@ -33,16 +33,32 @@ public class AlienEscape {
         if (playing) rescueAliens();
         wait(1000);
         if (playing) chooseDoor();
+
+
+        //SANDRA
+        if (playing) kitchen();
+        if (playing) priest();
+        if (playing) slippers();
+        if (playing) weapons();
+        if (playing) exitZone2();
+        if (playing) guardZone3();
+
+
+        //CLEMENT
+        if (playing) pierreRoom();
+        if (playing) licorneRoom();
+        if (playing) paulRoom();
+        if (playing) sylvainLab();
     }
 
     //SANDRA
+        //Salle 2
     public static void kitchen() {
         say("\nVous poussez la porte, immmédiatement une forte odeur de curry vous pique les recepteurs olfactifs. La faible lueur d'un feu étrange éclaire la pièce. " 
             + "Dans le récipient au dessus du feu, vous distinguez des denrées humaines sous forme liquide.");
         
         String question = "Vous nourir un peu serait une bonne idée, mais vous ne savez pas si votre métabolisme sera s'adapter...";
         String[] choices = {"Se nourir", "Sortir sans rien toucher"};
-
         playerAnswer = choice(question, choices);
 
         if(playerAnswer.equals("1")) {
@@ -62,7 +78,6 @@ public class AlienEscape {
 
         String question = "Mon enfant, approchez-vous dans la lumière, que je vous donne ma bénédiction\", dit-il calmement.";
         String[] choices = {"Recevoir la bénédiction du prêtre", "Rebrousser chemin"};
-
         playerAnswer = choice(question, choices);
 
         if (playerAnswer.equals("1")) {
@@ -85,23 +100,88 @@ public class AlienEscape {
         say("\nVous perdez" + Colors.red("5 points de vie") + ".");
     }
 
-    public static String weapons() {
+    public static void weapons() {
         String question = "\nVous avez trouvé la salle des armes ! Vous n'avez plus qu'à vous servir...";
-        String[] choices = {"Bazouka", "Petit pistolet", "Oublieur"};
-
+        String[] choices = {"Bazooka", "Petit pistolet", "Fusil à molécules", "Oublieur"};
         playerAnswer = choice(question, choices);
 
         if (playerAnswer.equals("1")) {
-            say("\nVous prenez le bazouka, plus c'est gros plus ça fait du dégat.");
-            return choices[0];
+            say("\nVous prenez le bazooka, plus c'est gros plus ça fait du dégat.");
+            equipement.add(choices[0]);
         } else if (playerAnswer.equals("2")) {
             say("\nVous prenez le pistolet, bon choix dans les espaces clos...");
-            return choices[1];
+            equipement.add(choices[1]);
+        } else if (playerAnswer.equals("3")) {
+            say("\nVous prenez le fusil à molécules, comme à la maison.");
+            equipement.add(choices[2]);
         } else {
             say("\nVous prenez l'oublieur, c'est joli, ça cligotte.");
-            return choices[2];
+            equipement.add(choices[3]);
         }
     }
+
+    public static void exitZone2() {
+        say("\nVous avez trouvé la sortie ! Un escalier vous mène au niveau supérieur.");
+    }
+
+        //Salle 3
+    public static void guardZone3() {
+        say("\nVous poussez les doubles portes. Un soldat se tient au milieu de la pièce, il braque son arme sur vous et s'apprête à tirer.");
+
+        String question = "Vous n'avez que quelques secondes pour réagir !";
+       
+        String[] inventory = new String[equipement.size()];
+        inventory = equipement.toArray(inventory);
+        String[] choices = new String[inventory.length + 1];
+        choices[0] = "Vous tentez une attaque alien secrète.";
+
+        String[] choicesText = new String[choices.length];
+        for (int i = 1; i < choices.length; i++) {
+            if (inventory[i].equals("Bazooka")) {
+                choicesText[i] = "Vous sortez votre bazooka, le soldat tire et saute dernière un bureau. Vous tirez, pas de munitions !"
+                +"\nVous bondissez et assommez le militaire avec votre arme. C'est sale mais ça fait plaisir.";
+                choices[i] = "Saisir le bazooka";
+            }
+        }
+        for (int i = 1; i < choices.length; i++) {
+            if (inventory[i].equals("Petit pistolet")) {
+                choicesText[i] = "Vous tirer et le touchez à la poitrine. Il réplique, la balle vous rafle la peau."
+                +"\nLe soldat s'éfondre, vous êtes sauf !";
+                choices[i] = "Saisir le pistolet";
+            }
+        }
+        for (int i = 1; i < choices.length; i++) {
+            if (inventory[i].equals("Fusil à molécules")) {
+                choicesText[i] = "Vous dégainez voter fusil à molécues et tirez ! Le soldat est désintégré instantanément." 
+                + "\nC'est bien fait et ça fait plaisir.";
+                choices[i] = "Saisir le fusil à molécules";
+            }
+        }
+        for (int i = 1; i < choices.length; i++) {
+            if (inventory[i].equals("Oublieur")) {
+                choicesText[i] = "Vous sortez l'Oublieur, mettez vos lunettes noires et déclenchez le flash." 
+                + "Le soldat vous regarde hébété... Men In Black est seul film humain que vous connaissiez, la chance.";
+                choices[i] = "Saisir l'Oublieur";
+            }
+        }
+        for (int i = 1; i < choices.length; i++) {
+            if (inventory[i].equals("Oublieur")) {
+                choicesText[i] = "Vous sortez l'Oublieur, mettez vos lunettes noires et déclenchez le flash." 
+                + "Le soldat vous regarde hébété... Men In Black est seul film humain que vous connaissiez, la chance.";
+                choices[i] = "Saisir l'Oublieur";
+            }
+        }
+
+        playerAnswer = choice(question, choices);
+
+        /*if (playerAnswer.equals("1")){
+            say("Vous etiez nul en arts martiaux, c'est la fin pour vous.");
+        } else if (playerAnswer.equals("1"))*/
+
+
+
+    }
+
 
 
 
