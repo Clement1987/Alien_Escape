@@ -31,7 +31,10 @@ public class AlienEscape {
 
 
         //CLEMENT
-
+        if (playing) pierreRoom();
+        if (playing) licorneRoom();
+        if (playing) paulRoom();
+        if (playing) sylvainLab();
     }
 
     //SANDRA
@@ -84,12 +87,11 @@ public class AlienEscape {
 
     public static String pierreRoom(){
         say("Vous rentrez par la porte rouge dans la salle et découvrez Pierre en caleçon ! Des symboles de chaussette dessus et les lunettes de travers, celui-ci vous regarde et déclare : ");
-        say("Pierre : oh ! un invité surprise tu veux faire des chaussettes avec moi made in Wild ?!");
-        String question ="voulez-vous rester avec Pierre afin de fabriquer vos chaussettes ou partir ?";
+        String question = "Oh ! un invité surprise tu veux faire des chaussettes avec moi made in Wild ?!";
         String[] playerChoice = {"Rester","partir en courant et en criant c'est des malades !","Rester et complimenter son caleçon !"};
         playerAnswer = choice(question,playerChoice);
             if (playerAnswer.equals("1")){
-                System.out.println("Pierre est très content et fabrique avec vous votre première chaussette wild, Félicitation !");
+                say("Pierre est très content et fabrique avec vous votre première chaussette wild, Félicitations !");
                 return "chaussette wilder";
             }
             if(playerAnswer.equals("2")){
@@ -105,11 +107,8 @@ public class AlienEscape {
 
     public static String licorneRoom(){
         say("A pas feutré vous entrouvrez la porte de la salle que vous avez séléctionnée. A votre grande surprise, celle-ci est plongée dans le noir, à votre droite se trouve un interrupteur pour éclairer la salle.");
-        say("Souhaitez vous allumer la lumière ?!");
-        say("1. Oui");
-        say("2. Non");
         String question ="Souhaitez vous allumer la lumière ?!";
-        String[] playerChoice = {"Oui,Non"};
+        String[] playerChoice = {"Oui","Non"};
         playerAnswer = choice(question,playerChoice);
         if (playerAnswer.equals("1")){
             say("votre instinct à bien fait d'allumer la lumière, car devant vous se trouve une licorne rose avec des tâches de peintures couleurs arc en ciel sur la tête entre sa corne et ses yeux.");
@@ -124,7 +123,7 @@ public class AlienEscape {
         return null; 
     }
 
-    public static String PaulRoom(){
+    public static String paulRoom(){
         say("Vous arrivez devant la porte verte et l'ouvrez avec un grand fracas, se tien devant vous Paul, star du cinéma, celui-ci vous regarde surpris et vous lance");
         say("Pour les autographes de mes fans interspatial il faudra négocier avec mon doubleur Philippe Manoeuvre ! j'en ai marre de cette tête, je vais me faire un ravalement de façade instantané !");
         say("Oh ! non je me suis trompé de modèle, le névrosé du code je n'en peux plus ! jour et nuit il code ! et surtout il patine, patine j'en ai ras le glaçon  !!");
@@ -137,14 +136,14 @@ public class AlienEscape {
         say("Vous découvrez Sylvain en pleine expérience sur Jean, élève de java, celui-ci crie sur son cobaye en lui triturant le cerveau, sur la musique de Lord of Ring");
         say("Votre peau commence à devenir rouge, ");
         String question ="vous obtenez un pouvoir de persuasion, souhaitez vous l'utiliser maintenant ?";
-        String[] playerChoice = {"Oui,Non"};
+        String[] playerChoice = {"Oui","Non"};
         playerAnswer = choice(question,playerChoice);
         if (playerAnswer.equals("1")){
             say("vous utilisez votre pouvoir psychique pour faire entendre la vérité à Sylvain, le java est l'avenir !!");
         }
         if (playerAnswer.equals("2")){
             say("Vous gardez précieusement votre pouvoir, vous entendez, cependant Sylvain qui mentionne PHP est supérieur à Java ! Vous ne pouvez pas retenir votre pouvoir devant tant d'ineptie !");
-            say("Vous lui faite entendre raison sur la supériorité du java ! Celui-ci vous aperçoit et accours vers vous en marmonnant des instructions incompréhensibles ! une histoire d'anneau, de précieux et celui-ci vous tends un objet !");
+            say("Vous lui faite entendre raison sur la supériorité du java ! Celui-ci vous aperçoit et accourt vers vous en marmonnant des instructions incompréhensibles ! une histoire d'anneau, de précieux et celui-ci vous tends un objet !");
             say("Obtention d'un stickers java > PHP !");
             return "sticker java";
         }
