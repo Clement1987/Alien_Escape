@@ -37,20 +37,34 @@ public class AlienEscape {
 
     public static void LaunchGame() {
 
-        if (playing) textStart();
-        wait(3000);
-        if (playing) stay();
-        wait(1000);
-        if (playing) firstMeet();
-        wait(1000);
-        if (playing) corridors();
-        wait(1000);
-        if (playing) rescueAliens();
-        wait(1000);
-        if (playing) chooseDoor();
-        wait(1000);
-        if (playing) guardZone3();
-        wait(1000);
+        if (playing) {
+            textStart();
+            wait(3000);
+        }       
+        if (playing) {
+            stay();
+            wait(1000);
+        } 
+        if (playing) { 
+            firstMeet();
+            wait(1000);
+        }
+        if (playing) {
+            corridors();
+            wait(1000);
+        }
+        if (playing) {
+            rescueAliens();
+            wait(1000);
+        }
+        if (playing) {
+            chooseDoor();
+            wait(1000);
+        }
+        if (playing) { 
+            guardZone3();
+            wait(1000);
+        }
         if (playing) outdoor();
         end();
     }
