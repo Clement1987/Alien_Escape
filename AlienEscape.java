@@ -82,18 +82,19 @@ public class AlienEscape {
         String question ="voulez-vous rester avec Pierre afin de fabriquer vos chaussettes ou partir ?";
         String[] playerChoice = {"Rester","partir en courant et en criant c'est des malades !","Rester et complimenter son caleçon !"};
         playerAnswer = choice(question,playerChoice);
-            if (playerAnswer == 1){
+            if (playerAnswer.equals("1")){
                 System.out.println("Pierre est très content et fabrique avec vous votre première chaussette wild, Félicitation !");
                 return "chaussette wilder";
             }
-            if(playerAnswer == 2){
+            if(playerAnswer.equals("2")){
                 System.out.println("vous commencez à crier affolé , Pierre crie d'effroi à son tour et de peur balance son fer à chaussette sur vous alors que vous ouvriez la porte. Vous venez de perdre 5 points de vie");
-                setLife(getlife()-5);
+                alien.setLife(alien.getLife()-5);
             }
-            if(playerAnswer ==3){
+            if(playerAnswer.equals("3")){
                 System.out.println("Vous complimentez le caleçon de pierre ! celui-ci est tellement heureux de ce compliment qu'il vous donne son caleçon fétiche devant vous ! scène interdite au moins de 25 ans !");
                 return "caleçon";
             }
+        return null;
     }
 
     public static String licorneRoom(){
@@ -104,17 +105,17 @@ public class AlienEscape {
         String question ="Souhaitez vous allumer la lumière ?!";
         String[] playerChoice = {"Oui,Non"};
         playerAnswer = choice(question,playerChoice);
-        if (playerAnswer == 1){
+        if (playerAnswer.equals("1")){
             say("votre instinct à bien fait d'allumer la lumière, car devant vous se trouve une licorne rose avec des tâches de peintures couleurs arc en ciel sur la tête entre sa corne et ses yeux.");
             say("Celle-ci vous dévisage équipé d'une corde sur le côté droit, celle-ci se rapproche de vous et met son museau entre vos mains et rapetisse jusqu'à tenir dans votre main.");
             say("Félicitation vous obtenez une licorne équipé d'une corde !");
             return "Licorne";
         }
-        if(playerAnswer == 2) {
+        if(playerAnswer.equals("2")) {
             say("votre instinct à bien fait et vous avez évité un grand danger et continuer votre périple sans perdre des points de vie");
             return null;
         }
-        
+        return null; 
     }
 
     public static String PaulRoom(){
@@ -132,17 +133,17 @@ public class AlienEscape {
         String question ="vous obtenez un pouvoir de persuasion, souhaitez vous l'utiliser maintenant ?";
         String[] playerChoice = {"Oui,Non"};
         playerAnswer = choice(question,playerChoice);
-        if (playerAnswer == 1){
+        if (playerAnswer.equals("1")){
             say("vous utilisez votre pouvoir psychique pour faire entendre la vérité à Sylvain, le java est l'avenir !!");
         }
-        if (playerAnswer == 2){
+        if (playerAnswer.equals("2")){
             say("Vous gardez précieusement votre pouvoir, vous entendez, cependant Sylvain qui mentionne PHP est supérieur à Java ! Vous ne pouvez pas retenir votre pouvoir devant tant d'ineptie !");
             say("Vous lui faite entendre raison sur la supériorité du java ! Celui-ci vous aperçoit et accours vers vous en marmonnant des instructions incompréhensibles ! une histoire d'anneau, de précieux et celui-ci vous tends un objet !");
             say("Obtention d'un stickers java > PHP !");
             return "sticker java";
         }
 
-
+        return null;
     }
 
     
