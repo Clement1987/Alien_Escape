@@ -49,53 +49,72 @@ public class AlienEscape {
     //CLEMENT
 
     public static String pierreRoom(){
-        System.out.println("Vous rentrez par la porte rouge dans la salle et découvrez Pierre en caleçon ! Des symboles de chaussette dessus et les lunettes de travers, celui ci vous regarde et déclare : ");
-        System.out.println("Pierre : oh ! un invité surprise tu veux faire des chaussettes avec moi made in Wild ?!");
-        System.out.println("voulez vous rester avec Pierre afin de fabriquer vos chaussettes ou partir ?");
-        System.out.println("1. rester");
-        System.out.println("2. partir en courrant et en criant c'est des malades !");
-        System.out.println("3. Rester et complimenter son calecon !");
-        int pierreChoice = sc.nextInt();
-            if (pierreChoice == 1){
-                System.out.println("Pierre est très content, et fabrique avec vous vos premières chaussettes wild, Félicitation !");
-                return "chausette wilder";
+        say("Vous rentrez par la porte rouge dans la salle et découvrez Pierre en caleçon ! Des symboles de chaussette dessus et les lunettes de travers, celui-ci vous regarde et déclare : ");
+        say("Pierre : oh ! un invité surprise tu veux faire des chaussettes avec moi made in Wild ?!");
+        String question ="voulez-vous rester avec Pierre afin de fabriquer vos chaussettes ou partir ?";
+        String[] playerChoice = {"Rester","partir en courant et en criant c'est des malades !","Rester et complimenter son caleçon !"};
+        playerAnswer = choice(question,playerChoice);
+            if (playerAnswer == 1){
+                System.out.println("Pierre est très content et fabrique avec vous votre première chaussette wild, Félicitation !");
+                return "chaussette wilder";
             }
-            if(pierreChoice == 2){
-                System.out.println("vous commencez à crier affolé , Pierre crie d'éffroi à son tour et de peur balance son fer à chaussette sur vous alors que vous ouvriez la porte. Vous venez de perdre 5 points de vie");
+            if(playerAnswer == 2){
+                System.out.println("vous commencez à crier affolé , Pierre crie d'effroi à son tour et de peur balance son fer à chaussette sur vous alors que vous ouvriez la porte. Vous venez de perdre 5 points de vie");
                 setLife(getlife()-5);
             }
-            if(pierreChoice ==3){
+            if(playerAnswer ==3){
                 System.out.println("Vous complimentez le caleçon de pierre ! celui-ci est tellement heureux de ce compliment qu'il vous donne son caleçon fétiche devant vous ! scène interdite au moins de 25 ans !");
                 return "caleçon";
             }
     }
 
     public static String licorneRoom(){
-        say("A pas feutré vous entrouvez la porte de la salle que vous avez séléctionné. A votre grande surprise, celle ci est plongée dans le noir, à votre droite se trouve un interrupteur pour éclairer la salle.");
+        say("A pas feutré vous entrouvrez la porte de la salle que vous avez séléctionnée. A votre grande surprise, celle-ci est plongée dans le noir, à votre droite se trouve un interrupteur pour éclairer la salle.");
         say("Souhaitez vous allumer la lumière ?!");
         say("1. Oui");
         say("2. Non");
-        int licorneChoice = sc.nextInt();
-        if (licorneChoice == 1){
-            say("votre instinct à bien fait d'allumer la lumière car devant vous se trouve une licorne rose avec des taches de peintures couleurs arc en ciel sur la tête entre sa corne et ses yeux.");
-            say("Celle-ci vous dévisage équipé d'une corde sur le coté droit, celle-ci se rapproche de vous et met son museau entre vos mains et rappetissie jusqu'à tenir dans votre main.");
+        String question ="Souhaitez vous allumer la lumière ?!";
+        String[] playerChoice = {"Oui,Non"};
+        playerAnswer = choice(question,playerChoice);
+        if (playerAnswer == 1){
+            say("votre instinct à bien fait d'allumer la lumière, car devant vous se trouve une licorne rose avec des tâches de peintures couleurs arc en ciel sur la tête entre sa corne et ses yeux.");
+            say("Celle-ci vous dévisage équipé d'une corde sur le côté droit, celle-ci se rapproche de vous et met son museau entre vos mains et rapetisse jusqu'à tenir dans votre main.");
             say("Félicitation vous obtenez une licorne équipé d'une corde !");
             return "Licorne";
         }
-        if(licorneChoice == 2) {
-            say("votre instinct à bien fait et vous avez évitez un grand danger et continuer votre périple sans perdre des points de vie");
+        if(playerAnswer == 2) {
+            say("votre instinct à bien fait et vous avez évité un grand danger et continuer votre périple sans perdre des points de vie");
             return null;
         }
         
     }
 
     public static String PaulRoom(){
-        say("Vous arrivez devant la porte verte et l'ouvrez avec un grand fracas, se tiens devant vous Paul star du cinéma, celui ci vous regarde surpris et vous lance");
-        say("pour les autographes de mes fans interspatiales il faudra négocier avec mon doubleur philippe Manoeuvre ! j'en ai marre de cet tête, je vais me faire un ravalement de facade instantanée !");
-        say("oh ! non je me suis trompez de modèle, le névrosé du code je n'en peux plus ! jour et nuit il code ! et surtout il patine, patine j'en ai ras le glaçon  !!");
-        say("tiens prend ma photo, au moins tu pourras dire que tu as vu la star de ses lieux !");
-        say("félicitation vous obtenez une photo de Paul le codeur");
+        say("Vous arrivez devant la porte verte et l'ouvrez avec un grand fracas, se tien devant vous Paul, star du cinéma, celui-ci vous regarde surpris et vous lance");
+        say("Pour les autographes de mes fans interspatial il faudra négocier avec mon doubleur Philippe Manoeuvre ! j'en ai marre de cette tête, je vais me faire un ravalement de façade instantané !");
+        say("Oh ! non je me suis trompé de modèle, le névrosé du code je n'en peux plus ! jour et nuit il code ! et surtout il patine, patine j'en ai ras le glaçon  !!");
+        say("Tiens prends ma photo, au moins tu pourras dire que tu as vu la star de ces lieux !");
+        say("Félicitations vous obtenez une photo de Paul le codeur");
         return "Photo";
+    }
+    public static String sylvainLab(){
+        say("Vous arrivez devant une porte noire, vous hésitez à l'ouvrir ! vous prenez votre courage à deux tentacules et poussez celle-ci !");
+        say("Vous découvrez Sylvain en pleine expérience sur Jean, élève de java, celui-ci crie sur son cobaye en lui triturant le cerveau, sur la musique de Lord of Ring");
+        say("Votre peau commence à devenir rouge, ");
+        String question ="vous obtenez un pouvoir de persuasion, souhaitez vous l'utiliser maintenant ?";
+        String[] playerChoice = {"Oui,Non"};
+        playerAnswer = choice(question,playerChoice);
+        if (playerAnswer == 1){
+            say("vous utilisez votre pouvoir psychique pour faire entendre la vérité à Sylvain, le java est l'avenir !!");
+        }
+        if (playerAnswer == 2){
+            say("Vous gardez précieusement votre pouvoir, vous entendez, cependant Sylvain qui mentionne PHP est supérieur à Java ! Vous ne pouvez pas retenir votre pouvoir devant tant d'ineptie !");
+            say("Vous lui faite entendre raison sur la supériorité du java ! Celui-ci vous aperçoit et accours vers vous en marmonnant des instructions incompréhensibles ! une histoire d'anneau, de précieux et celui-ci vous tends un objet !");
+            say("Obtention d'un stickers java > PHP !");
+            return "sticker java";
+        }
+
+
     }
 
     
