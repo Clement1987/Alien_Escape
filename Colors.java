@@ -29,4 +29,11 @@ public class Colors {
 		return "\033[0;5m" + str + "\033[0m";
 
 	}
+
+	public static String blue (String str) {
+
+		return "\033[30m" + str + "\033[0m";
+
+	}
+
 }

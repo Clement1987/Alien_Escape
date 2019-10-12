@@ -13,18 +13,34 @@ public class AlienEscape {
     private static boolean playing;
 
     public static void main (String[] args) {
-        //Title début
+        System.out.println("");
+        System.out.println(Colors.green("        .8.          8 8888          8 8888 8 8888888888   b.             8           8 8888888888      d888888o.       ,o888888o.             .8.          8 888888888o   8 8888888888  "));
+        System.out.println(Colors.green("        .888.         8 8888          8 8888 8 8888         888o.          8           8 8888          .`8888:' `88.    8888     `88.          .888.         8 8888    `88. 8 8888        "));
+        System.out.println(Colors.green("       :88888.        8 8888          8 8888 8 8888         Y88888o.       8           8 8888          8.`8888.   Y8 ,8 8888       `8.        :88888.        8 8888     `88 8 8888        "));
+        System.out.println(Colors.green("      . `88888.       8 8888          8 8888 8 8888         .`Y888888o.    8           8 8888          `8.`8888.     88 8888                 . `88888.       8 8888     ,88 8 8888        "));
+        System.out.println(Colors.green("     .8. `88888.      8 8888          8 8888 8 888888888888 8o. `Y888888o. 8           8 888888888888   `8.`8888.    88 8888                .8. `88888.      8 8888.   ,88' 8 888888888888"));
+        System.out.println(Colors.green("    .8`8. `88888.     8 8888          8 8888 8 8888         8`Y8o. `Y88888o8           8 8888            `8.`8888.   88 8888               .8`8. `88888.     8 888888888P'  8 8888        "));
+        System.out.println(Colors.green("   .8' `8. `88888.    8 8888          8 8888 8 8888         8   `Y8o. `Y8888           8 8888             `8.`8888.  88 8888              .8' `8. `88888.    8 8888         8 8888        "));
+        System.out.println(Colors.green("  .8'   `8. `88888.   8 8888          8 8888 8 8888         8      `Y8o. `Y8           8 8888         8b   `8.`8888. `8 8888       .8'   .8'   `8. `88888.   8 8888         8 8888        "));
+        System.out.println(Colors.green(" .888888888. `88888.  8 8888          8 8888 8 8888         8         `Y8o.`           8 8888         `8b.  ;8.`8888    8888     ,88'   .888888888. `88888.  8 8888         8 8888        "));
+        System.out.println(Colors.green(".8'       `8. `88888. 8 888888888888  8 8888 8 888888888888 8            `Yo           8 888888888888  `Y8888P ,88P'     `8888888P'    .8'       `8. `88888. 8 8888         8 888888888888  "));
+        System.out.println("");
+        System.out.println("");
 
+        wait(1000);
         playing = true;
+        Sound ambiance = new Sound("./Sounds/Ambiance.wav");
+        ambiance.loop();
         LaunchGame();
+        ambiance.stop();
 
-        //Title fin
+        //Fin
     }
 
     public static void LaunchGame() {
 
         if (playing) textStart();
-        wait(5000);
+        wait(3000);
         if (playing) stay();
         wait(1000);
         if (playing) firstMeet();
@@ -36,6 +52,9 @@ public class AlienEscape {
         if (playing) chooseDoor();
         wait(1000);
         if (playing) guardZone3();
+        end();
+
+
 
     }
 
@@ -64,12 +83,12 @@ public class AlienEscape {
     public static void priest() {
         say("\nVous poussez la porte, un homme en toge blanche est agenouillé devant un hotel de pierre. Il se retourne lentement, il n'a pas l'air suppris de vous voir.");
 
-        String question = "Mon enfant, approchez-vous dans la lumière, que je vous donne ma bénédiction\", dit-il calmement.";
-        String[] choices = {"Recevoir la bénédiction du prêtre", "Rebrousser chemin"};
+        String question = "Mon enfant, approchez-vous dans la lumière, que je vous donne ma bénédiction, dit-il calmement.";
+        String[] choices = {"Recevoir la bénédiction du pasteur", "Rebrousser chemin"};
         playerAnswer = choice(question, choices);
 
         if (playerAnswer.equals("1")) {
-            say("\nVous vous approchez maladroitement du prêtre, il dessine d'étranges signes dans l'air et prononce des paroles incompréhensibles." 
+            say("\nVous vous approchez maladroitement du pasteur, il dessine d'étranges signes dans l'air et prononce des paroles incompréhensibles." 
                 + "\nVous sentez une sensation de chaleur se répendre depuis vos membres porteurs, votre corps semble soudain léger et alerte." 
                 + "\nVous ressortez, vous ne pouvez vous empêcher de repenser à ses grandes pupilles dilatées...");
             alien.setVitality(alien.getVitality() + 50);
@@ -407,7 +426,7 @@ public class AlienEscape {
         String[] answerList = new String[] {"Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte"};
 
         while (playing) {
-            playerAnswer = choice(question, answerList);
+            playerAnswer = choiceDoor(question, answerList);
             wait(1000);
                 if (playerAnswer.equals("1")) {
                     if (playing) paulRoom(); 
@@ -453,11 +472,14 @@ public class AlienEscape {
     //GLOBAL
 
     private static void say (String message) {
+        Sound letter = new Sound("./Sounds/2777.wav");
+        letter.play();
         for (int i = 0; i < message.length(); i++) {
             System.out.print(message.charAt(i));
             wait(20);
         }
         System.out.println("");
+        letter.stop();
     }
 
     private static String choice (String question, String[] choices) {
@@ -481,12 +503,41 @@ public class AlienEscape {
         return pAnswer;
     }
 
+    private static String choiceDoor (String question, String[] choices) {
+        String[] answerIndex = new String [choices.length];
+        for (int j = 0; j < choices.length; j++) {
+            answerIndex[j] = Integer.toString(j+1);
+        }
+        String[] answerList = choices;
+		String pAnswer = "";
+		while (!Arrays.asList(answerIndex).contains(pAnswer)) {
+            say(question);
+            say("");
+            for (int i = 0; i < answerList.length; i++) {
+                System.out.println( "< " + answerIndex[i] + " > " + answerList[i]);
+            }
+            say("");
+            System.out.print("Answer : ");
+            pAnswer = sc.nextLine();
+            say("");
+        }
+        return pAnswer;
+    }
+
 	private static void wait(int time) {
 		try {
 			Thread.sleep(time);
 		} catch (Exception e) {
 
 		}
-	}
+    }
+    
+    private static void end() {
+        say("");
+        System.out.println("===============================================================================================================");
+        say("");
+        say("Vous avez malheureusement échoué. Vous n'avez pas pu vous échapper de la Zone 51.");
+        say("");
+    }
 
 }
