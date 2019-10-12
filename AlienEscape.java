@@ -260,63 +260,45 @@ public class AlienEscape {
         say("Vous arrivez dans un couloir disposant de neuf portes.");
         String question = "Quelle porte voulez-vous emprunter ?";
         String[] answerList = new String[] {"Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte"};
-        ArrayList<String> answerIndex = new ArrayList<String>();
-        answerIndex.add("1");
-        answerIndex.add("2");
-        answerIndex.add("3");
-        answerIndex.add("4");
-        answerIndex.add("5");
-        answerIndex.add("6");
-        answerIndex.add("7");
-        answerIndex.add("8");
-        answerIndex.add("9");
 
-        while (answerIndex.size() > 0 && playing) {
+        while (playing) {
             playerAnswer = choice(question, answerList);
             wait(1000);
                 if (playerAnswer.equals("1")) {
-
-                    answerIndex.remove(0);
+                    if (playing) paulRoom(); 
                 }
 
                 if (playerAnswer.equals("2")) {
                     if (playing) sylvainLab();
-                    answerIndex.remove(1);
                 }
 
                 if (playerAnswer.equals("3")) {
-                    if (playing) paulRoom(); 
-                    answerIndex.remove(2);
+
+                    break;
                 }
 
                 if (playerAnswer.equals("4")) {
                     if (playing) licorneRoom();
-                    answerIndex.remove(3);
                 }
 
                 if (playerAnswer.equals("5")) {
                     if (playing) pierreRoom();
-                    answerIndex.remove(4);
                 }
 
                 if (playerAnswer.equals("6")) {
                     if (playing) weapons();
-                    answerIndex.remove(5);
                 }
 
                 if (playerAnswer.equals("7")) {
                     if (playing) slippers();
-                    answerIndex.remove(6);
                 }
 
                 if (playerAnswer.equals("8")) {
                     if (playing) priest();
-                    answerIndex.remove(7);
                 }
 
                 if (playerAnswer.equals("9")) {
                     if (playing) kitchen();
-                    answerIndex.remove(8);
                 }
         }
     
