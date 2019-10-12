@@ -22,7 +22,7 @@ public class AlienEscape {
 
     public static void LaunchGame() {
 
-        if (playing) textStart();
+        /*if (playing) textStart();
         wait(5000);
         if (playing) stay();
         wait(1000);
@@ -34,7 +34,9 @@ public class AlienEscape {
         wait(1000);
         if (playing) chooseDoor();
         wait(1000);
-        if (playing) guardZone3();
+        if (playing) guardZone3();*/
+
+        outdoor();
 
     }
 
@@ -117,11 +119,11 @@ public class AlienEscape {
 
         String question = "Vous n'avez que quelques secondes pour réagir !";
 
-        equipement.add("Bazooka");
+        /*equipement.add("Bazooka");
         equipement.add("Petit pistolet");
         equipement.add("Fusil à molécules");
         equipement.add("Oublieur");
-        equipement.add("alien costaud");
+        equipement.add("alien costaud");*/
        
         String[] inventory = new String[equipement.size()];
         inventory = equipement.toArray(inventory);
@@ -211,34 +213,34 @@ public class AlienEscape {
             playing = false;
         } else if (playerAnswer.equals("2")) {
             say(choicesText[1]);
+            equipement.remove(0);
             if (isDying[1]) playing = false;
             if (isHurting[1]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
-                equipement.remove(0);
             }
         } else if (playerAnswer.equals("3")) {
             say(choicesText[2]);
+            equipement.remove(1);
             if (isDying[2]) playing = false;
             if (isHurting[2]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
-                equipement.remove(1);
             }
         } else if (playerAnswer.equals("4")) {
             say(choicesText[3]);
+            equipement.remove(2);
             if (isDying[3]) playing = false;
             if (isHurting[3]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
-                equipement.remove(2);
             }
         } else if (playerAnswer.equals("5")) {
             say(choicesText[4]);
+            equipement.remove(3);
             if (isHurting[4]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
-                equipement.remove(3);
             }
             if (isDying[4]) playing = false;
         } else if (playerAnswer.equals("6")) {
@@ -251,26 +253,51 @@ public class AlienEscape {
             }
         } else if (playerAnswer.equals("7")) {
             say(choicesText[6]);
+            equipement.remove(5);
             if (isDying[6]) playing = false;
             if (isHurting[6]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
-                equipement.remove(5);
             }
         } else {
             say(choicesText[7]);
+            equipement.remove(6);
             if (isDying[7]) playing = false;
             if (isHurting[7]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
-                equipement.remove(6);
             }
         }
     }
-
-
-
-
+    public static void outdoor() {
+        say("\nVous réalisez que vous vous trouvez dans la tour de contrôle. C'est la débandade dehors." 
+            + "\nDes millions d'humain déguisés en aliens (de très mauvais goût) déferlent vers les soldats bien rangés." 
+            + "\nC'est votre chance, vous allez pouvoir profiter du chaos pour vous échapper." 
+            + "\nMais la porte est vérouillée. Vous apercevez le terminal qui contrôle l'ouverture.");
+        /*equipement.add("alien diforme");*/
+        if (equipement.contains("alien diforme")) {
+            String question = "Vous devez implémenter un algorithme... Oh non, pas l'algo...";
+            String[] choices = {"Demander de l'aide à votre alien diforme", "Vous y coller, parce qu'il ne faut jamais éviter de pratiquer..."};
+            playerAnswer = choice(question, choices);
+                if (playerAnswer.equals("1")) {
+                    say("Votre alien tape frénétiquement sur le clavier pendant quelques secondes. La porte vers la liberté s'ouvre.");
+                } else {
+                    String answer = "";
+                    while (!answer.equals("true")){
+                        say("Le code affiche : isJavaDeLaBalle == false; quel est le mot à implémenter ?");
+                        answer = sc.nextLine();
+                    }
+                    say("Bravo, la porte s'ouvre !!!");
+                }
+        } else {
+            String answer = "";
+            while (!answer.equals("true")){
+                say("Le code affiche : isJavaDeLaBalle == false; quel est le mot à implémenter ?");
+                answer = sc.nextLine();
+            }
+            say("Bravo, la porte s'ouvre !!!");
+        }
+    }
 
 
     //CLEMENT
