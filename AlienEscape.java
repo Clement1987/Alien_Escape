@@ -6,7 +6,7 @@ import java.util.List;
 public class AlienEscape {
 
     private static Scanner sc = new Scanner(System.in);
-    private static ArrayList<String> equipement = new ArrayList<>();
+    private static ArrayList<String> equipement = new ArrayList<String>();
     private static MyAlien alien = new MyAlien("name");
     private static String playerAnswer;
     private static boolean playing;
@@ -117,14 +117,14 @@ public class AlienEscape {
 
     //CLEMENT
 
-    public static String pierreRoom(){
+    public static void pierreRoom(){
         say("Vous rentrez par la porte rouge dans la salle et découvrez Pierre en caleçon ! Des symboles de chaussette dessus et les lunettes de travers, celui-ci vous regarde et déclare : ");
         String question = "Oh ! un invité surprise tu veux faire des chaussettes avec moi made in Wild ?!";
         String[] playerChoice = {"Rester","partir en courant et en criant c'est des malades !","Rester et complimenter son caleçon !"};
         playerAnswer = choice(question,playerChoice);
             if (playerAnswer.equals("1")){
                 say("Pierre est très content et fabrique avec vous votre première chaussette wild, Félicitations !");
-                return "chaussette wilder";
+                equipement.add("Chausettes Wilder");
             }
             if(playerAnswer.equals("2")){
                 System.out.println("vous commencez à crier affolé , Pierre crie d'effroi à son tour et de peur balance son fer à chaussette sur vous alors que vous ouvriez la porte. Vous venez de perdre 5 points de vie");
@@ -132,12 +132,11 @@ public class AlienEscape {
             }
             if(playerAnswer.equals("3")){
                 System.out.println("Vous complimentez le caleçon de pierre ! celui-ci est tellement heureux de ce compliment qu'il vous donne son caleçon fétiche devant vous ! scène interdite au moins de 25 ans !");
-                return "caleçon";
+                equipement.add("Caleçon");
             }
-        return null;
     }
 
-    public static String licorneRoom(){
+    public static void licorneRoom(){
         say("A pas feutré vous entrouvrez la porte de la salle que vous avez séléctionnée. A votre grande surprise, celle-ci est plongée dans le noir, à votre droite se trouve un interrupteur pour éclairer la salle.");
         String question ="Souhaitez vous allumer la lumière ?!";
         String[] playerChoice = {"Oui","Non"};
@@ -146,24 +145,22 @@ public class AlienEscape {
             say("votre instinct à bien fait d'allumer la lumière, car devant vous se trouve une licorne rose avec des tâches de peintures couleurs arc en ciel sur la tête entre sa corne et ses yeux.");
             say("Celle-ci vous dévisage équipé d'une corde sur le côté droit, celle-ci se rapproche de vous et met son museau entre vos mains et rapetisse jusqu'à tenir dans votre main.");
             say("Félicitation vous obtenez une licorne équipé d'une corde !");
-            return "Licorne";
+            equipement.add("Licorne");
         }
         if(playerAnswer.equals("2")) {
             say("votre instinct à bien fait et vous avez évité un grand danger et continuer votre périple sans perdre des points de vie");
-            return null;
-        }
-        return null; 
+        } 
     }
 
-    public static String paulRoom(){
+    public static void paulRoom(){
         say("Vous arrivez devant la porte verte et l'ouvrez avec un grand fracas, se tien devant vous Paul, star du cinéma, celui-ci vous regarde surpris et vous lance");
         say("Pour les autographes de mes fans interspatial il faudra négocier avec mon doubleur Philippe Manoeuvre ! j'en ai marre de cette tête, je vais me faire un ravalement de façade instantané !");
         say("Oh ! non je me suis trompé de modèle, le névrosé du code je n'en peux plus ! jour et nuit il code ! et surtout il patine, patine j'en ai ras le glaçon  !!");
         say("Tiens prends ma photo, au moins tu pourras dire que tu as vu la star de ces lieux !");
         say("Félicitations vous obtenez une photo de Paul le codeur");
-        return "Photo";
+        equipement.add("Photo");
     }
-    public static String sylvainLab(){
+    public static void sylvainLab(){
         say("Vous arrivez devant une porte noire, vous hésitez à l'ouvrir ! vous prenez votre courage à deux tentacules et poussez celle-ci !");
         say("Vous découvrez Sylvain en pleine expérience sur Jean, élève de java, celui-ci crie sur son cobaye en lui triturant le cerveau, sur la musique de Lord of Ring");
         say("Votre peau commence à devenir rouge, ");
@@ -177,10 +174,9 @@ public class AlienEscape {
             say("Vous gardez précieusement votre pouvoir, vous entendez, cependant Sylvain qui mentionne PHP est supérieur à Java ! Vous ne pouvez pas retenir votre pouvoir devant tant d'ineptie !");
             say("Vous lui faite entendre raison sur la supériorité du java ! Celui-ci vous aperçoit et accourt vers vous en marmonnant des instructions incompréhensibles ! une histoire d'anneau, de précieux et celui-ci vous tends un objet !");
             say("Obtention d'un stickers java > PHP !");
-            return "sticker java";
+            equipement.add("Sticker Java");
         }
 
-        return null;
     }
 
     
@@ -249,7 +245,7 @@ public class AlienEscape {
 
     }
 
-    private static String rescueAliens () {
+    private static void rescueAliens () {
         say("Vous arrivez désormais dans une grande salle dans laquelle sont disposées quatres cages où d'autres aliens sont enfermés.");
         String question = "Au loin, vous entendez la sécurité arriver, vous n'avez le temps de secourir qu'un seul alien :";
         String[] answerList = new String[] {"Secourir un alien petit et trappu","Secourir un alien grand et costaud","Secourir un alien diforme et visqueux",};
@@ -261,13 +257,12 @@ public class AlienEscape {
         } else if (playerAnswer.equals("2")) {
             say("Vous secourez l'alien grand et costaud.");
             say("il vous suit sans hésitez et vous comprenez vite que sa carrure est bien plus imposante que sa force réelle.");
-            return "alien costaud";
+            equipement.add("alien costaud");
         } else if (playerAnswer.equals("3")) {
             say("Vous secourez l'alien diforme et visqueux.");
             say("Vous vous enfuyez avec un nouveau compagnon.");
-            return "alien diforme";
+            equipement.add("alien diforme");
         }
-        return "";
     }
 
     private static void chooseDoor () {
