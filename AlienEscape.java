@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.lang.Math;
 
 public class AlienEscape {
 
@@ -22,25 +23,15 @@ public class AlienEscape {
 
     public static void LaunchGame() {
 
-        //QUENTIN
         if (playing) stay();
+        wait(1000);
         if (playing) firstMeet();
+        wait(1000);
         if (playing) corridors();
+        wait(1000);
         if (playing) rescueAliens();
+        wait(1000);
         if (playing) chooseDoor();
-
-        //SANDRA
-        if (playing) kitchen();
-        if (playing) priest();
-        if (playing) slippers();
-        if (playing) weapons();
-
-
-        //CLEMENT
-        if (playing) pierreRoom();
-        if (playing) licorneRoom();
-        if (playing) paulRoom();
-        if (playing) sylvainLab();
     }
 
     //SANDRA
@@ -216,7 +207,7 @@ public class AlienEscape {
 
     private static void loverTime () {
         String question = "Vous avez décidé de séduire le garde, choissisez la phrase d'approche la plus appropriée :";
-        String[] answerList = new String[] {"Salut, j’étais là-bas, je t’ai vu et je t’ai trouvé tout sexy.","Belle journée pour faire une garde n'est ce pas ?","Salut, vous êtes d'ici ?"};
+        String[] answerList = new String[] {"Salut, j’étais là-bas, je t’ai vu et je t’ai trouvé trop sexy.","Belle journée pour faire une garde n'est ce pas ?","Salut, vous êtes d'ici ?"};
         String answer = choice(question, answerList);
         if (answer.equals("1")) {
             say("Excellente approche, le garde semble désorienté face à tant de charisme.");
@@ -266,10 +257,69 @@ public class AlienEscape {
     }
 
     private static void chooseDoor () {
-        say("Vous arrivez dans un couloir disposant de dix portes, 5 de part et d'autre.");
+        say("Vous arrivez dans un couloir disposant de neuf portes.");
         String question = "Quelle porte voulez-vous emprunter ?";
-        String[] answerList = new String[] {"Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte"};
-        playerAnswer = choice(question, answerList);
+        String[] answerList = new String[] {"Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte"};
+        ArrayList<String> answerIndex = new ArrayList<String>();
+        answerIndex.add("1");
+        answerIndex.add("2");
+        answerIndex.add("3");
+        answerIndex.add("4");
+        answerIndex.add("5");
+        answerIndex.add("6");
+        answerIndex.add("7");
+        answerIndex.add("8");
+        answerIndex.add("9");
+
+        while (answerIndex.size() > 0 && playing) {
+            playerAnswer = choice(question, answerList);
+            wait(1000);
+                if (playerAnswer.equals("1")) {
+
+                    answerIndex.remove(0);
+                }
+
+                if (playerAnswer.equals("2")) {
+                    if (playing) sylvainLab();
+                    answerIndex.remove(1);
+                }
+
+                if (playerAnswer.equals("3")) {
+                    if (playing) paulRoom(); 
+                    answerIndex.remove(2);
+                }
+
+                if (playerAnswer.equals("4")) {
+                    if (playing) licorneRoom();
+                    answerIndex.remove(3);
+                }
+
+                if (playerAnswer.equals("5")) {
+                    if (playing) pierreRoom();
+                    answerIndex.remove(4);
+                }
+
+                if (playerAnswer.equals("6")) {
+                    if (playing) weapons();
+                    answerIndex.remove(5);
+                }
+
+                if (playerAnswer.equals("7")) {
+                    if (playing) slippers();
+                    answerIndex.remove(6);
+                }
+
+                if (playerAnswer.equals("8")) {
+                    if (playing) priest();
+                    answerIndex.remove(7);
+                }
+
+                if (playerAnswer.equals("9")) {
+                    if (playing) kitchen();
+                    answerIndex.remove(8);
+                }
+        }
+    
     }
 
     //GLOBAL
