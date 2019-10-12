@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class AlienEscape {
 
     private static Scanner sc = new Scanner(System.in);
