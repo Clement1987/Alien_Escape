@@ -22,28 +22,61 @@ public class AlienEscape {
 
     public static void LaunchGame() {
 
+        //QUENTIN
         if (playing) stay();
         if (playing) firstMeet();
+
+        //SANDRA
+        priest();
+
+
+        //CLEMENT
 
     }
 
     //SANDRA
         public static void kitchen() {
-        say("Vous poussez la porte, immmédiatement une forte odeur de curry vous pique les recepteurs olfactifs. La faible lueur d'un feu étrange éclaire la pièce. " 
-            + "Dans le récipient au dessus du feu, vous distinguez des denrées humaines sous forme liquide.");
-        say("\nVous nourir un peu serait une bonne idée, mais vous ne savez pas si votre métabolisme sera s'adapter...\n< 1 > Se nourir\n< 2 > Sortir sans rien toucher");
 
-        if(playerAnswer.equals("1")) {
-            say("Affamé, vous vous saisisez à pleine mains du récipient de denrées. Une douleur fulgurente vous traverse la peau, vous lachez prise et le liquide se renverse sur vous."
-                + "\nVous hurlez à des fréquences inaudibles, produisez des gestes frénétiques incontrôlables, vous attrapez un bout de tissu pour vous essuyer, mais vous glissez dans le liquide et tombez en diretion du feu."
-                + "\nVous manquez de vous assomer, quand vous reprenez vos esprits, le tissu s'est enflammé et le feu commence à se propager."
-                + "\nAprès 30 min d'intenses efforts, vous avez réussi à éteindre le feu. Vous ressortez de la pièce, fourbu...");
-            alien.setLife(alien.getLife() - 20);
+            say("Vous poussez la porte, immmédiatement une forte odeur de curry vous pique les recepteurs olfactifs. La faible lueur d'un feu étrange éclaire la pièce. " 
+                + "Dans le récipient au dessus du feu, vous distinguez des denrées humaines sous forme liquide.");
+            
+            String question = "\nVous nourir un peu serait une bonne idée, mais vous ne savez pas si votre métabolisme sera s'adapter...";
+            String[] choices = {"Se nourir", "Sortir sans rien toucher"};
+
+            playerAnswer = choice(question, choices);
+
+            if(playerAnswer.equals("1")) {
+                say("Affamé, vous vous saisisez à pleine mains du récipient de denrées. Une douleur fulgurente vous traverse la peau, vous lachez prise et le liquide se renverse sur vous."
+                    + "\nTout en hurlant à des fréquences humainement inaudibles, vous attrapez un bout de tissu pour vous essuyer, mais vous glissez dans le liquide et manquez de vous assomer."
+                    + "\nQuand vous reprenez vos esprits, le tissu s'est enflammé et le feu commence à se propager."
+                    + "\nAprès 30 min d'intenses efforts, vous avez réussi à éteindre le feu. Vous ressortez de la pièce, fourbu...");
+                alien.setLife(alien.getLife() - 20);
+            } else {
+                say("Malgré la tentation, vous faites marche arrière... Votre estomac se souviens encore de sa dernière indigestion fulgurente...");
+            }
         }
-        if(playerAnswer.equals("2")) {
-            say("Malgré la tentation, vous faites marche arrière... Votre estomac se souviens encore de sa dernière indijestion fulgurente...");
+
+        public static void priest() {
+            say("Vous poussez la porte, un homme en toge blanche est agenouillé devant un hotel de pierre. Il se retourne lentement, il n'a pas l'air suppris de vous voir.");
+
+            String question = "\nMon enfant, approchez-vous dans la lumière, que je vous donne ma bénédiction\", dit-il calmement.";
+            String[] choices = {"Recevoir la bénédiction du prêtre", "Rebrousser chemin"};
+
+            playerAnswer = choice(question, choices);
+
+            if (playerAnswer.equals("1")) {
+                say("Vous vous approchez maladroitement du prêtre, il dessine d'étranges signes dans l'air et prononce des paroles incompréhensibles." 
+                    + "\nVous sentez une sensation de chaleur se répendre depuis vos membres porteurs, votre corps semble soudain léger et alerte." 
+                    + "\nVous ressortez, vous ne pouvez vous empêcher de repenser à ses grandes pupile dilatées...");
+                alien.setVitality(alien.getVitality() + 50);
+            } else {
+                say("\nVotre instinct vous pousse à rebrousser chemin... A la réflexion l'homme avait d'énormes pupilles dilatées...");
+            }
+
+
         }
-    }
+
+
 
 
 
