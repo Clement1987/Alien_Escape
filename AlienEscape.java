@@ -25,6 +25,24 @@ public class AlienEscape {
     }
 
     //SANDRA
+        public static void kitchen() {
+        say("Vous poussez la porte, immmédiatement une forte odeur de curry vous pique les recepteurs olfactifs. La faible lueur d'un feu étrange éclaire la pièce. " 
+            + "Dans le récipient au dessus du feu, vous distinguez des denrées humaines sous forme liquide.");
+        say("\nVous nourir un peu serait une bonne idée, mais vous ne savez pas si votre métabolisme sera s'adapter...\n< 1 > Se nourir\n< 2 > Sortir sans rien toucher");
+
+        playerAnswer = choice();
+
+        if(playerAnswer.equals("1")) {
+            say("Affamé, vous vous saisisez à pleine mains du récipient de denrées. Une douleur fulgurente vous traverse la peau, vous lachez prise et le liquide se renverse sur vous."
+                + "\nVous hurlez à des fréquences inaudibles, produisez des gestes frénétiques incontrôlables, vous attrapez un bout de tissu pour vous essuyer, mais vous glissez dans le liquide et tombez en diretion du feu."
+                + "\nVous manquez de vous assomer, quand vous reprenez vos esprits, le tissu s'est enflammé et le feu commence à se propager."
+                + "\nAprès 30 min d'intenses efforts, vous avez réussi à éteindre le feu. Vous ressortez de la pièce, fourbu...");
+            alien.setLife(alien.getLife() - 20);
+        }
+        if(playerAnswer.equals("2")) {
+            say("Malgré la tentation, vous faites marche arrière... Votre estomac se souviens encore de sa dernière indijestion fulgurente...");
+        }
+    }
 
 
 
