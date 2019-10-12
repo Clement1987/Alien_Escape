@@ -188,6 +188,22 @@ public class AlienEscape {
                 isHurting[i] = false;
             }
         }
+        for (int i = 1; i < choices.length; i++) {
+            if (inventory[i-1].equals("alien diforme")) {
+                choicesText[i] = "L'alien diforme crie d'effroi et le soldat vous tue tous les deux.";
+                choices[i] = "Faire appel à l'alien diforme !";
+                isDying[i] = true;
+                isHurting[i] = false;
+            }
+        }
+        for (int i = 1; i < choices.length; i++) {
+            if (inventory[i-1].equals("Licorne")) {
+                choicesText[i] = "Non ! Pas la licorne ! Vous mourrez en tentant de la protéger...";
+                choices[i] = "Pousser la licorne devant soi";
+                isDying[i] = true;
+                isHurting[i] = false;
+            }
+        }
 
         playerAnswer = choice(question, choices);
 
@@ -229,10 +245,17 @@ public class AlienEscape {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
             }
-        } else {
+        } else if (playerAnswer.equals("7")) {
             say(choicesText[6]);
             if (isDying[6]) playing = false;
             if (isHurting[6]) {
+                alien.setLife(alien.getLife() - 10);
+                say("Vous perdez 10 point de vie.");
+            }
+        } else {
+            say(choicesText[7]);
+            if (isDying[7]) playing = false;
+            if (isHurting[7]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
             }
@@ -253,7 +276,7 @@ public class AlienEscape {
         playerAnswer = choice(question,playerChoice);
             if (playerAnswer.equals("1")){
                 say("Pierre est très content et fabrique avec vous votre première chaussette wild, Félicitations !");
-                equipement.add("Chausettes Wilder");
+                /*equipement.add("Chausettes Wilder");*/
             }
             if(playerAnswer.equals("2")){
                 System.out.println("vous commencez à crier affolé , Pierre crie d'effroi à son tour et de peur balance son fer à chaussette sur vous alors que vous ouvriez la porte. Vous venez de perdre " + Colors.red("5 points de vie"));
@@ -261,7 +284,7 @@ public class AlienEscape {
             }
             if(playerAnswer.equals("3")){
                 System.out.println("Vous complimentez le caleçon de pierre ! celui-ci est tellement heureux de ce compliment qu'il vous donne son caleçon fétiche devant vous ! scène interdite au moins de 25 ans !");
-                equipement.add("Caleçon");
+                /*equipement.add("Caleçon");*/
             }
     }
 
@@ -287,7 +310,7 @@ public class AlienEscape {
         say("Oh ! non je me suis trompé de modèle, le névrosé du code je n'en peux plus ! jour et nuit il code ! et surtout il patine, patine j'en ai ras le glaçon  !!");
         say("Tiens prends ma photo, au moins tu pourras dire que tu as vu la star de ces lieux !");
         say("Félicitations vous obtenez une photo de Paul le codeur");
-        equipement.add("Photo");
+        /*equipement.add("Photo");*/
     }
     public static void sylvainLab(){
         say("Vous arrivez devant une porte noire, vous hésitez à l'ouvrir ! vous prenez votre courage à deux tentacules et poussez celle-ci !");
@@ -303,7 +326,7 @@ public class AlienEscape {
             say("Vous gardez précieusement votre pouvoir, vous entendez, cependant Sylvain qui mentionne PHP est supérieur à Java ! Vous ne pouvez pas retenir votre pouvoir devant tant d'ineptie !");
             say("Vous lui faite entendre raison sur la supériorité du java ! Celui-ci vous aperçoit et accourt vers vous en marmonnant des instructions incompréhensibles ! une histoire d'anneau, de précieux et celui-ci vous tends un objet !");
             say("Obtention d'un stickers java > PHP !");
-            equipement.add("Sticker Java");
+           /* equipement.add("Sticker Java");*/
         }
 
     }
