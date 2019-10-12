@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class AlienEscape {
 
     private static Scanner sc = new Scanner(System.in);
@@ -33,22 +34,9 @@ public class AlienEscape {
         if (playing) rescueAliens();
         wait(1000);
         if (playing) chooseDoor();
-
-
-        //SANDRA
-        if (playing) kitchen();
-        if (playing) priest();
-        if (playing) slippers();
-        if (playing) weapons();
-        if (playing) exitZone2();
+        wait(1000);
         if (playing) guardZone3();
 
-
-        //CLEMENT
-        if (playing) pierreRoom();
-        if (playing) licorneRoom();
-        if (playing) paulRoom();
-        if (playing) sylvainLab();
     }
 
     //SANDRA
@@ -362,7 +350,7 @@ public class AlienEscape {
                 }
 
                 if (playerAnswer.equals("3")) {
-
+                    if (playing) exitZone2();
                     break;
                 }
 
