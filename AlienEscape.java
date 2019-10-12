@@ -96,12 +96,12 @@ public class AlienEscape {
     }
 
     public static void slippers() {
-        say("\nVous poussez la porte, la pièce se trouve dans la pénombre... Vous faites quelques pas sur la moquette pour atteindre l'interupteur." 
-            + "\nSoudain, un objet vous percute violemment au visage ! Hébété, vous apercevez une humaine vous visant avec une pantoufle : " 
-            + "\n\"Fuyez pauvre fou, vous avez ruiné la moquette de la Wild !\", crie-t-elle." 
-            + "\nVous courrez vers la sortie pendant qu'une autre patoufle vous atteind à la tête.");
+        say("Vous poussez la porte, la pièce se trouve dans la pénombre... Vous faites quelques pas sur la moquette pour atteindre l'interupteur.");
+        say("Soudain, un objet vous percute violemment au visage ! Hébété, vous apercevez une humaine vous visant avec une pantoufle : ");
+        say("Fuyez pauvre fou, vous avez ruiné la moquette de la Wild !\", crie-t-elle.");
+        say("Vous courrez vers la sortie pendant qu'une autre patoufle vous atteind à la tête.");
         alien.setLife(alien.getLife() - 5);
-        say("\nVous perdez" + Colors.red("5 points de vie") + ".");
+        say("Vous perdez" + Colors.red(" 5 points de vie") + ".");
     }
 
     public static void weapons() {
@@ -476,7 +476,7 @@ public class AlienEscape {
         String[] answerList = new String[] {"Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte","Porte"};
 
         while (playing) {
-            playerAnswer = choiceDoor(question, answerList);
+            playerAnswer = choice(question, answerList);
             wait(1000);
                 if (playerAnswer.equals("1")) {
                     if (playing) paulRoom(); 
@@ -515,6 +515,10 @@ public class AlienEscape {
                 if (playerAnswer.equals("9")) {
                     if (playing) kitchen();
                 }
+            say("");
+            say("Vous sortez de la salle ...");
+            say("");
+            wait(500);
         }
     
     }
@@ -522,15 +526,13 @@ public class AlienEscape {
     //GLOBAL
 
     private static void say (String message) {
-        Sound letter = new Sound("./Sounds/2777.wav");
-        letter.play();
         for (int i = 0; i < message.length(); i++) {
             System.out.print(message.charAt(i));
             wait(20);
         }
         System.out.println("");
-        letter.stop();
     }
+
 
     private static String choice (String question, String[] choices) {
         String[] answerIndex = new String [choices.length];
@@ -544,27 +546,6 @@ public class AlienEscape {
             say("");
             for (int i = 0; i < answerList.length; i++) {
                 say( "< " + answerIndex[i] + " > " + answerList[i]);
-            }
-            say("");
-            System.out.print("Answer : ");
-            pAnswer = sc.nextLine();
-            say("");
-        }
-        return pAnswer;
-    }
-
-    private static String choiceDoor (String question, String[] choices) {
-        String[] answerIndex = new String [choices.length];
-        for (int j = 0; j < choices.length; j++) {
-            answerIndex[j] = Integer.toString(j+1);
-        }
-        String[] answerList = choices;
-		String pAnswer = "";
-		while (!Arrays.asList(answerIndex).contains(pAnswer)) {
-            say(question);
-            say("");
-            for (int i = 0; i < answerList.length; i++) {
-                System.out.println( "< " + answerIndex[i] + " > " + answerList[i]);
             }
             say("");
             System.out.print("Answer : ");
