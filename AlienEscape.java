@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.lang.Math;
 
 public class AlienEscape {
 
@@ -52,7 +51,7 @@ public class AlienEscape {
                 + "\nQuand vous reprenez vos esprits, le tissu s'est enflammé et le feu commence à se propager."
                 + "\nAprès 30 min d'intenses efforts, vous avez réussi à éteindre le feu. Vous ressortez de la pièce, fourbu...");
             alien.setLife(alien.getLife() - 20);
-            say("\nVous perdez 20 points de vie.");
+            say("\nVous perdez " + Colors.red("20 points de vie") + ".");
         } else {
             say("Malgré la tentation, vous faites marche arrière... Votre estomac se souviens encore de sa dernière indigestion fulgurente...");
         }
@@ -71,7 +70,7 @@ public class AlienEscape {
                 + "\nVous sentez une sensation de chaleur se répendre depuis vos membres porteurs, votre corps semble soudain léger et alerte." 
                 + "\nVous ressortez, vous ne pouvez vous empêcher de repenser à ses grandes pupilles dilatées...");
             alien.setVitality(alien.getVitality() + 50);
-            say("\nVous gagnez 50 points de vitalité et un doigt dans le cul.");
+            say("\nVous gagnez " + Colors.red("50 points de vitalité") + " et un doigt dans le cul.");
         } else {
             say("\nVotre instinct vous pousse à rebrousser chemin... A la réflexion, l'homme avait d'énormes pupilles dilatées...");
         }
@@ -83,7 +82,7 @@ public class AlienEscape {
             + "\n\"Fuyez pauvre fou, vous avez ruiné la moquette de la Wild !\", crie-t-elle." 
             + "\nVous courrez vers la sortie pendant qu'une autre patoufle vous atteind à la tête.");
         alien.setLife(alien.getLife() - 5);
-        say("\nVous perdez 5 points de vie.");
+        say("\nVous perdez" + Colors.red("5 points de vie") + ".");
     }
 
     public static String weapons() {
@@ -120,7 +119,7 @@ public class AlienEscape {
                 equipement.add("Chausettes Wilder");
             }
             if(playerAnswer.equals("2")){
-                System.out.println("vous commencez à crier affolé , Pierre crie d'effroi à son tour et de peur balance son fer à chaussette sur vous alors que vous ouvriez la porte. Vous venez de perdre 5 points de vie");
+                System.out.println("vous commencez à crier affolé , Pierre crie d'effroi à son tour et de peur balance son fer à chaussette sur vous alors que vous ouvriez la porte. Vous venez de perdre " + Colors.red("5 points de vie"));
                 alien.setLife(alien.getLife()-5);
             }
             if(playerAnswer.equals("3")){
@@ -173,7 +172,7 @@ public class AlienEscape {
     }
     public static void textStart(){
         say("Vous ouvrez les yeux et entendez la radio du garde à l'exterieur de votre cellule qui grésille de plus en plus.");
-        say(" Vous vous souvenez de votre rencontre entre les états unis et votre peuple à rosenzweig. Les Américains n'ont pas tenus leur engagment et vous ont enfermé dans leur prison situé dans la zone 51.");
+        say("Vous vous souvenez de votre rencontre entre les états unis et votre peuple à rosenzweig. Les Américains n'ont pas tenus leur engagment et vous ont enfermé dans leur prison situé dans la zone 51.");
         say("La porte de votre cellule semble avoir été coupé par une coupure brève de courant, vous jeter un oeil au calendrier près de la porte affichant la date du jour: 20 septembre 2019.");
         say("C'est ici que commence votre aventure !");
         say("");
@@ -220,7 +219,7 @@ public class AlienEscape {
         String answer = choice(question, answerList);
         if (answer.equals("1")) {
             say("Excellente approche, le garde semble désorienté face à tant de charisme.");
-            say("Vous gagnez 10 points de charisme !");
+            say("Vous gagnez " + Colors.cyan("10 points de charisme") + " !");
             alien.setCharm(alien.getCharm() + 10);
         } else if (answer.equals("2")) {
             say("Enthousiaste, le garde vous répond qu'en effet la journée est adéquate pour un tour de garde avant de vous atomiser la gueule.");
@@ -275,6 +274,7 @@ public class AlienEscape {
             wait(1000);
                 if (playerAnswer.equals("1")) {
                     if (playing) paulRoom(); 
+                    wait(2000);
                 }
 
                 if (playerAnswer.equals("2")) {
