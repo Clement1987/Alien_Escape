@@ -5,6 +5,7 @@ public class MyAlien {
     private int strength;
     private int charm;
     private int vitality;
+    private int intelligence;
 
     public MyAlien (String name) {
         this.name = name;
@@ -12,11 +13,12 @@ public class MyAlien {
         this.strength = 5;
         this.charm = 0;
         this.vitality = 10;
+        this.intelligence = 30;
     }
 
     //getters
 
-    public String getName() {
+    public String getName () {
         return this.name;
     }
 
@@ -34,6 +36,10 @@ public class MyAlien {
 
     public int getVitality () {
         return this.vitality;
+    }
+
+    public int getIntelligence () {
+        return this.intelligence;
     }
 
     //setters
@@ -56,5 +62,9 @@ public class MyAlien {
 
     public void setVitality (int vitality) {
         this.vitality = vitality;
+    }
+
+    public void setIntelligence (int intelligence) {
+        this.intelligence = intelligence;
     }
 }
