@@ -130,57 +130,126 @@ public class AlienEscape {
         say("\nVous poussez les doubles portes. Un soldat se tient au milieu de la pièce, il braque son arme sur vous et s'apprête à tirer.");
 
         String question = "Vous n'avez que quelques secondes pour réagir !";
+
+        equipement.add("Bazooka");
+        equipement.add("Petit pistolet");
+        equipement.add("Fusil à molécules");
+        equipement.add("Oublieur");
+        equipement.add("alien costaud");
        
         String[] inventory = new String[equipement.size()];
         inventory = equipement.toArray(inventory);
         String[] choices = new String[inventory.length + 1];
-        choices[0] = "Vous tentez une attaque alien secrète.";
 
         String[] choicesText = new String[choices.length];
+        choices[0] = "Vous tentez une attaque alien secrète.";
+        choicesText[0] = "Vous avez toujours été nul en arts martiaux aliens, vous mourrez au premier mouvement...";
+        boolean[] isDying = new boolean[choices.length];
+        boolean[] isHurting = new boolean[choices.length];
+       
         for (int i = 1; i < choices.length; i++) {
-            if (inventory[i].equals("Bazooka")) {
+            if (inventory[i-1].equals("Bazooka")) {
                 choicesText[i] = "Vous sortez votre bazooka, le soldat tire et saute dernière un bureau. Vous tirez, pas de munitions !"
                 +"\nVous bondissez et assommez le militaire avec votre arme. C'est sale mais ça fait plaisir.";
                 choices[i] = "Saisir le bazooka";
+                isDying[i] = false;
+                isHurting[i] = true;
             }
         }
         for (int i = 1; i < choices.length; i++) {
-            if (inventory[i].equals("Petit pistolet")) {
+            if (inventory[i-1].equals("Petit pistolet")) {
                 choicesText[i] = "Vous tirer et le touchez à la poitrine. Il réplique, la balle vous rafle la peau."
                 +"\nLe soldat s'éfondre, vous êtes sauf !";
                 choices[i] = "Saisir le pistolet";
+                isDying[i] = false;
+                isHurting[i] = true;
             }
         }
         for (int i = 1; i < choices.length; i++) {
-            if (inventory[i].equals("Fusil à molécules")) {
+            if (inventory[i-1].equals("Fusil à molécules")) {
                 choicesText[i] = "Vous dégainez voter fusil à molécues et tirez ! Le soldat est désintégré instantanément." 
                 + "\nC'est bien fait et ça fait plaisir.";
                 choices[i] = "Saisir le fusil à molécules";
+                isDying[i] = false;
+                isHurting[i] = false;
             }
         }
         for (int i = 1; i < choices.length; i++) {
-            if (inventory[i].equals("Oublieur")) {
+            if (inventory[i-1].equals("Oublieur")) {
                 choicesText[i] = "Vous sortez l'Oublieur, mettez vos lunettes noires et déclenchez le flash." 
                 + "Le soldat vous regarde hébété... Men In Black est seul film humain que vous connaissiez, la chance.";
                 choices[i] = "Saisir l'Oublieur";
+                isDying[i] = false;
+                isHurting[i] = false;
             }
         }
         for (int i = 1; i < choices.length; i++) {
-            if (inventory[i].equals("Oublieur")) {
-                choicesText[i] = "Vous sortez l'Oublieur, mettez vos lunettes noires et déclenchez le flash." 
-                + "Le soldat vous regarde hébété... Men In Black est seul film humain que vous connaissiez, la chance.";
-                choices[i] = "Saisir l'Oublieur";
+            if (inventory[i-1].equals("alien costaud")) {
+                choicesText[i] = "L'alien costaud saute devant vous et intersepte la balle qui allait vous tuer."
+                +"\nIl s'effondre, mais il vous donne le temps nécéssaire pour attaquer sauvagement le soldat. Le soldat tombe." 
+                + "\nVous n'oublierai jamais le sacrifice de votre ami...";
+                choices[i] = "Faire appel à l'alien costaud !";
+                isDying[i] = false;
+                isHurting[i] = true;
+            }
+        }
+        for (int i = 1; i < choices.length; i++) {
+            if (inventory[i-1].equals("alien diforme")) {
+                choicesText[i] = "L'alien diforme crie d'effroi et le soldat vous tue tous les deux.";
+                choices[i] = "Faire appel à l'alien diforme !";
+                isDying[i] = true;
+                isHurting[i] = false;
             }
         }
 
         playerAnswer = choice(question, choices);
 
-        /*if (playerAnswer.equals("1")){
-            say("Vous etiez nul en arts martiaux, c'est la fin pour vous.");
-        } else if (playerAnswer.equals("1"))*/
-
-
-
+        if(playerAnswer.equals("1")) {
+            say(choicesText[0]);
+            playing = false;
+        } else if (playerAnswer.equals("2")) {
+            say(choicesText[1]);
+            if (isDying[1]) playing = false;
+            if (isHurting[1]) {
+                alien.setLife(alien.getLife() - 10);
+                say("Vous perdez 10 point de vie.");
+            }
+        } else if (playerAnswer.equals("3")) {
+            say(choicesText[2]);
+            if (isDying[2]) playing = false;
+            if (isHurting[2]) {
+                alien.setLife(alien.getLife() - 10);
+                say("Vous perdez 10 point de vie.");
+            }
+        } else if (playerAnswer.equals("4")) {
+            say(choicesText[3]);
+            if (isDying[3]) playing = false;
+            if (isHurting[3]) {
+                alien.setLife(alien.getLife() - 10);
+                say("Vous perdez 10 point de vie.");
+            }
+        } else if (playerAnswer.equals("5")) {
+            say(choicesText[4]);
+            if (isHurting[4]) {
+                alien.setLife(alien.getLife() - 10);
+                say("Vous perdez 10 point de vie.");
+            }
+            if (isDying[4]) playing = false;
+        } else if (playerAnswer.equals("6")) {
+            say(choicesText[5]);
+            if (isDying[5]) playing = false;
+            if (isHurting[5]) {
+                alien.setLife(alien.getLife() - 10);
+                say("Vous perdez 10 point de vie.");
+            }
+        } else {
+            say(choicesText[6]);
+            if (isDying[6]) playing = false;
+            if (isHurting[6]) {
+                alien.setLife(alien.getLife() - 10);
+                say("Vous perdez 10 point de vie.");
+            }
+        }
     }
 
 
@@ -191,7 +260,7 @@ public class AlienEscape {
     //CLEMENT
 
     public static void pierreRoom(){
-        say("Vous rentrez par la porte rouge dans la salle et découvrez Pierre en caleçon ! Des symboles de chaussette dessus et les lunettes de travers, celui-ci vous regarde et déclare : ");
+        say("\nVous rentrez par la porte rouge dans la salle et découvrez Pierre en caleçon ! Des symboles de chaussette dessus et les lunettes de travers, celui-ci vous regarde et déclare : ");
         String question = "Oh ! un invité surprise tu veux faire des chaussettes avec moi made in Wild ?!";
         String[] playerChoice = {"Rester","partir en courant et en criant c'est des malades !","Rester et complimenter son caleçon !"};
         playerAnswer = choice(question,playerChoice);
