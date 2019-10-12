@@ -215,6 +215,7 @@ public class AlienEscape {
             if (isHurting[1]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
+                equipement.remove(0);
             }
         } else if (playerAnswer.equals("3")) {
             say(choicesText[2]);
@@ -222,6 +223,7 @@ public class AlienEscape {
             if (isHurting[2]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
+                equipement.remove(1);
             }
         } else if (playerAnswer.equals("4")) {
             say(choicesText[3]);
@@ -229,12 +231,14 @@ public class AlienEscape {
             if (isHurting[3]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
+                equipement.remove(2);
             }
         } else if (playerAnswer.equals("5")) {
             say(choicesText[4]);
             if (isHurting[4]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
+                equipement.remove(3);
             }
             if (isDying[4]) playing = false;
         } else if (playerAnswer.equals("6")) {
@@ -243,6 +247,7 @@ public class AlienEscape {
             if (isHurting[5]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
+                equipement.remove(4);
             }
         } else if (playerAnswer.equals("7")) {
             say(choicesText[6]);
@@ -250,6 +255,7 @@ public class AlienEscape {
             if (isHurting[6]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
+                equipement.remove(5);
             }
         } else {
             say(choicesText[7]);
@@ -257,6 +263,7 @@ public class AlienEscape {
             if (isHurting[7]) {
                 alien.setLife(alien.getLife() - 10);
                 say("Vous perdez 10 point de vie.");
+                equipement.remove(6);
             }
         }
     }
