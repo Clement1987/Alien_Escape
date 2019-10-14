@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import javax.sound.sampled.LineUnavailableException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,10 +12,11 @@ public class AlienEscape {
     private static MyAlien alien = new MyAlien("name");
     private static String playerAnswer;
     private static boolean playing;
+    private static Sound letter = new Sound ("Sounds/2777.wav");
 
     public static void main (String[] args) {
         System.out.println("");
-        System.out.println(Colors.green("        .8.          8 8888          8 8888 8 8888888888   b.             8           8 8888888888      d888888o.       ,o888888o.             .8.          8 888888888o   8 8888888888  "));
+        System.out.println(Colors.green("         .8.          8 8888          8 8888 8 8888888888   b.             8           8 8888888888      d888888o.       ,o888888o.             .8.          8 888888888o   8 8888888888  "));
         System.out.println(Colors.green("        .888.         8 8888          8 8888 8 8888         888o.          8           8 8888          .`8888:' `88.    8888     `88.          .888.         8 8888    `88. 8 8888        "));
         System.out.println(Colors.green("       :88888.        8 8888          8 8888 8 8888         Y88888o.       8           8 8888          8.`8888.   Y8 ,8 8888       `8.        :88888.        8 8888     `88 8 8888        "));
         System.out.println(Colors.green("      . `88888.       8 8888          8 8888 8 8888         .`Y888888o.    8           8 8888          `8.`8888.     88 8888                 . `88888.       8 8888     ,88 8 8888        "));
@@ -115,7 +119,7 @@ public class AlienEscape {
         say("Soudain, un objet vous percute violemment au visage ! Hébété, vous apercevez une humaine vous visant avec une pantoufle : ");
         say("Fuyez pauvre fou, vous avez ruiné la moquette de la Wild !\", crie-t-elle.");
         say("Vous courrez vers la sortie pendant qu'une autre patoufle vous atteind à la tête.");
-        alien.setLife(alien.getLife() - 5);
+        alien.setLife(alien.getLife() - 5);     
         say("Vous perdez" + Colors.red(" 5 points de vie") + ".");
     }
 
@@ -541,11 +545,19 @@ public class AlienEscape {
     //GLOBAL
 
     private static void say (String message) {
-        for (int i = 0; i < message.length(); i++) {
-            System.out.print(message.charAt(i));
-            wait(20);
-        }
-        System.out.println("");
+       // try {
+            
+            letter.loop();
+            for (int i = 0; i < message.length(); i++) {
+                System.out.print(message.charAt(i));
+                wait(20);
+            }
+            System.out.println("");
+            letter.stop();
+       /* } catch (LineUnavailableException e) {
+
+            System.err.println("Error");
+        }*/
     }
 
 
